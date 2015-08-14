@@ -66,9 +66,13 @@ npm install
 npm start
 ```
 
+![clone2](https://cloud.githubusercontent.com/assets/1268976/9284202/b42221f0-42a7-11e5-9de6-5a3855046425.gif)
+
 The `npm start` script will spawn a webserver on port `8888` which hosts the React TodoMVC App.
 
 You can verify this by opening your browser and navigating to: `http://localhost:8888`
+
+![running](https://cloud.githubusercontent.com/assets/1268976/9284207/bbfceb12-42a7-11e5-859d-61b42911a2a0.gif)
 
 You should see `TodoMVC` up and running. We are now ready to run and write Cypress tests.
 
