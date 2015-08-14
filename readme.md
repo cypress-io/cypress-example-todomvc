@@ -48,6 +48,8 @@ Instead of using the CLI: [you can download Cypress directly here.](http://downl
 
 If you want to experiment with running this project in Travis CI, you'll need to fork it first.
 
+![fork2](https://cloud.githubusercontent.com/assets/1268976/9283761/24c8f0a4-42a4-11e5-8f57-f99fb70c75fb.gif)
+
 After forking this project in `Github`, run these commands:
 
 ```bash
