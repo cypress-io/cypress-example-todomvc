@@ -48,7 +48,7 @@ Instead of using the CLI: [you can download Cypress directly here.](http://downl
 
 If you want to experiment with running this project in Travis CI, you'll need to fork it first.
 
-![fork2](https://cloud.githubusercontent.com/assets/1268976/9283761/24c8f0a4-42a4-11e5-8f57-f99fb70c75fb.gif)
+![fork](https://cloud.githubusercontent.com/assets/1268976/9286781/b0725c06-42c9-11e5-8fdd-c48fa3474cdf.gif)
 
 After forking this project in `Github`, run these commands:
 
@@ -72,7 +72,7 @@ The `npm start` script will spawn a webserver on port `8888` which hosts the Rea
 
 You can verify this by opening your browser and navigating to: `http://localhost:8888`
 
-![running](https://cloud.githubusercontent.com/assets/1268976/9284207/bbfceb12-42a7-11e5-859d-61b42911a2a0.gif)
+![running](https://cloud.githubusercontent.com/assets/1268976/9286788/dcd012d4-42c9-11e5-9aeb-6bd382c4c49a.gif)
 
 You should see `TodoMVC` up and running. We are now ready to run and write Cypress tests.
 
@@ -83,6 +83,8 @@ You should see `TodoMVC` up and running. We are now ready to run and write Cypre
 * Click on the project, and you'll see the `Server is Running` message.
 * Click on `http://localhost:2020`.
 * Click `Run All Tests` inside of Cypress
+
+![project](https://cloud.githubusercontent.com/assets/1268976/9286780/adad94b8-42c9-11e5-9a67-df7abb87fac0.gif)
 
 After adding `examples-react-travis-ci` to Cypress, Cypress will generate a `cypress.json` file here:
 
