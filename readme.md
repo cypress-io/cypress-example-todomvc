@@ -105,7 +105,7 @@ There are two things you'll need to do:
 1. Add your repo to Travis CI
 2. Add your project's `secret key` to Travis CI
 
-This secret key is how Cypress verifies your project is allowed to run in CI. This key can (currently) only be obtained from the CLI Tool.
+This secret key is how Cypress verifies your project is allowed to run in CI. This key can only be obtained from the CLI Tool (currently).
 
 #### Add your repo to Travis CI
 
@@ -158,7 +158,7 @@ cypress ci 703b33d9-a00e-4c66-90c2-40efc0fee2c6
 Commit this change and you are done, your tests should run in Travis CI.
 
 **Note:**
-> Passing a specific secret key will override the CYPRESS_API_KEY environment variable you may have configured.
+> Passing a specific secret key will override the CYPRESS_CI_KEY environment variable you may have configured.
 
 #### Configuring Environment Variables
 
@@ -167,10 +167,10 @@ Instead of writing your secret key directly into your `.travis.yml`, you can con
 * Log into www.travis-ci.org
 * Go to your repo's `Settings`
 * Under `Environment Variables`
-* Set `Name` to: `CYPRESS_API_KEY`
+* Set `Name` to: `CYPRESS_CI_KEY`
 * Set `Value` to whatever your secret key is.
 
-The name of the key must match `CYPRESS_API_KEY`.
+The name of the key must match `CYPRESS_CI_KEY`.
 
 You are now done. The next time you commit anything to this repo, Travis CI should run your tests.
 
