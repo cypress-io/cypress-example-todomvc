@@ -1,4 +1,4 @@
-# React App + Travis CI
+# React App + Travis CI [![Build Status](https://travis-ci.org/cypress-io/examples-react-travis-ci.svg)](https://travis-ci.org/cypress-io/examples-react-travis-ci)
 
 This repo contains an example React App, with the tests written in Cypress.
 
