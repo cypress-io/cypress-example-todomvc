@@ -112,9 +112,11 @@ This secret key is how Cypress verifies your project is allowed to run in CI. Th
 * Log into www.travis-ci.org
 * Switch `ON` your `examples-react-travis-ci` fork
 
+![add-to-travis](https://cloud.githubusercontent.com/assets/1268976/9291524/8e97f74c-4393-11e5-82af-ec1a52cf2c65.gif)
+
 #### Obtaining your secret key
 
-You must install the Cypress CLI tool (mentioned in Step 1)
+You must install the Cypress CLI tool (mentioned in Step 1).
 
 Run this command from your terminal:
 
@@ -127,6 +129,11 @@ cypress get:key
 ## you'll see a key that looks like this
 703b33d9-a00e-4c66-90c2-40efc0fee2c6
 ```
+
+![get-key](https://cloud.githubusercontent.com/assets/1268976/9291525/8ea13f28-4393-11e5-955e-1a41fee12f5f.gif)
+
+**Note:**
+> `cypress get:key` expects your `pwd` to be that of your project.
 
 #### Provide this secret key to Travis CI
 
@@ -170,6 +177,8 @@ Instead of writing your secret key directly into your `.travis.yml`, you can con
 * Set `Name` to: `CYPRESS_CI_KEY`
 * Set `Value` to whatever your secret key is.
 
+![travis-env](https://cloud.githubusercontent.com/assets/1268976/9291526/8ea17e84-4393-11e5-84bf-a167c2f1fedf.gif)
+
 The name of the key must match `CYPRESS_CI_KEY`.
 
 You are now done. The next time you commit anything to this repo, Travis CI should run your tests.
@@ -179,3 +188,9 @@ You are now done. The next time you commit anything to this repo, Travis CI shou
 One last way Travis CI offers to secure secret keys is their own `encrypt` tool.
 
 [Read the docs here](http://docs.travis-ci.com/user/encryption-keys/) to learn how.
+
+## Travis Build Logs
+
+You should now be running in Travis CI and the build logs should look something like this:
+
+![travis-logs](https://cloud.githubusercontent.com/assets/1268976/9291527/8ea21024-4393-11e5-86b7-80e3b5d1047e.gif)
