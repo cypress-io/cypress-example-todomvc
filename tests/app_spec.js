@@ -185,7 +185,6 @@ describe("TodoMVC - React [000]", function(){
         // alias the first todo and then click it
         .get(".todo-list li").eq(0).as("firstTodo")
           .find(".toggle")
-          // TODO setting this to check never ended the command
           .uncheck()
 
         // reference the .toggle-all element again
