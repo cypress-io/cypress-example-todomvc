@@ -378,8 +378,6 @@ describe("TodoMVC - React [000]", function(){
       // mimicking TodoMVC tests
       // by writing out this function
       function testState() {
-        // these aliases aren't showing up as well
-        // the 2nd time around
         cy
           .get("@firstTodo").should("have.text", TODO_ITEM_ONE).and("have.class", "completed")
           .get("@secondTodo").should("have.text", TODO_ITEM_TWO).and("not.have.class", "completed")
