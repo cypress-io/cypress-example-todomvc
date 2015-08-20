@@ -421,14 +421,18 @@ describe("TodoMVC - React [000]", function(){
       // TODO need to add the `cy.navigate` command here
       // which handles both history navigation and url / hash
       // navigation
+      // this test will indeterminately fail if your CPU is
+      // under load because window.history.back() is async.
+      // once the cy.navigate command is created this will fix
+      // this issue. for the moment let's just add a manual wait
       cy
         .get("@todos").eq(1).find(".toggle").check()
         .get(".filters").contains("Active").click()
         .get(".filters").contains("Completed").click()
         .get("@todos").should("have.length", 1)
-        .window().its("history").invoke("back")
+        .window().its("history").invoke("back").wait(200)
         .get("@todos").should("have.length", 2)
-        .window().its("history").invoke("back")
+        .window().its("history").invoke("back").wait(200)
         .get("@todos").should("have.length", 3)
     })
 
