@@ -55,9 +55,9 @@ describe("TodoMVC - React [000]", function(){
       // https://github.com/cypress-io/cypress/wiki/commands#options
       // https://github.com/cypress-io/cypress/wiki/get
       cy
-        .get(".todo-list li", {exist: false})
-        .get(".main",         {exist: false})
-        .get(".footer",       {exist: false})
+        .get(".todo-list li").should("not.exist")
+        .get(".main").should("not.exist")
+        .get(".footer").should("not.exist")
     })
   })
 
@@ -80,13 +80,13 @@ describe("TodoMVC - React [000]", function(){
         .get(".new-todo").type(TODO_ITEM_ONE).type("{enter}")
 
         // make sure the 1st label contains the 1st todo text
-        .get(".todo-list li").eq(0).find("label").contains(TODO_ITEM_ONE)
+        .get(".todo-list li").eq(0).find("label").should("contain", TODO_ITEM_ONE)
 
         // create 2nd todo
         .get(".new-todo").type(TODO_ITEM_TWO).type("{enter}")
 
         // make sure the 2nd label contains the 2nd todo text
-        .get(".todo-list li").eq(1).find("label").contains(TODO_ITEM_TWO)
+        .get(".todo-list li").eq(1).find("label").should("contain", TODO_ITEM_TWO)
     })
 
     it("should clear text input field when an item is added [007]", function(){
@@ -108,9 +108,9 @@ describe("TodoMVC - React [000]", function(){
         // `cy.contains` can verify this correctly
         .get(".todo-count").contains("3 items left")
 
-        .get("@todos").eq(0).find("label").contains(TODO_ITEM_ONE)
-        .get("@todos").eq(1).find("label").contains(TODO_ITEM_TWO)
-        .get("@todos").eq(2).find("label").contains(TODO_ITEM_THREE)
+        .get("@todos").eq(0).find("label").should("contain", TODO_ITEM_ONE)
+        .get("@todos").eq(1).find("label").should("contain", TODO_ITEM_TWO)
+        .get("@todos").eq(2).find("label").should("contain", TODO_ITEM_THREE)
     })
 
     it("should trim text input [009]", function(){
@@ -123,7 +123,7 @@ describe("TodoMVC - React [000]", function(){
         .createTodo("    " + TODO_ITEM_ONE + "    ")
 
         // we use as explicit assertion here about the text instead of
-        // using cy.contains so we can specify the exact text of the element
+        // using 'contain' so we can specify the exact text of the element
         // does not have any whitespace around it
         .get(".todo-list li").eq(0).should("have.text", TODO_ITEM_ONE)
     })
@@ -131,8 +131,8 @@ describe("TodoMVC - React [000]", function(){
     it("should show #main and #footer when items added [00a]", function(){
       cy
         .createTodo(TODO_ITEM_ONE)
-        .get(".main",   {visible: true})
-        .get(".footer", {visible: true})
+        .get(".main").should("be.visible")
+        .get(".footer").should("be.visible")
     })
   })
 
@@ -251,9 +251,9 @@ describe("TodoMVC - React [000]", function(){
           .type("buy some sausages").type("{enter}")
 
         // explicitly assert about the text value
-        .get("@todos").eq(0).should("have.text", TODO_ITEM_ONE)
-        .get("@secondTodo").should("have.text", "buy some sausages")
-        .get("@todos").eq(2).should("have.text", TODO_ITEM_THREE)
+        .get("@todos").eq(0).should("contain", TODO_ITEM_ONE)
+        .get("@secondTodo").should("contain", "buy some sausages")
+        .get("@todos").eq(2).should("contain", TODO_ITEM_THREE)
     })
   })
 
@@ -270,8 +270,8 @@ describe("TodoMVC - React [000]", function(){
         .get("@todos").eq(1).as("secondTodo")
           .find("label").dblclick()
 
-        .get("@secondTodo").find(".toggle", {visible: false})
-        .get("@secondTodo").find("label",   {visible: false})
+        .get("@secondTodo").find(".toggle").should("not.be.visible")
+        .get("@secondTodo").find("label").should("not.be.visible")
 
     })
 
@@ -290,9 +290,9 @@ describe("TodoMVC - React [000]", function(){
           // could do that its just more mental work
           .blur()
 
-        .get("@todos").eq(0).should("have.text", TODO_ITEM_ONE)
-        .get("@secondTodo").should("have.text", "buy some sausages")
-        .get("@todos").eq(2).should("have.text", TODO_ITEM_THREE)
+        .get("@todos").eq(0).should("contain", TODO_ITEM_ONE)
+        .get("@secondTodo").should("contain", "buy some sausages")
+        .get("@todos").eq(2).should("contain", TODO_ITEM_THREE)
     })
 
     it("should trim entered text [00m]", function(){
@@ -304,9 +304,9 @@ describe("TodoMVC - React [000]", function(){
           .find(".edit").clear()
           .type("    buy some sausages    ").type("{enter}")
 
-        .get("@todos").eq(0).should("have.text", TODO_ITEM_ONE)
-        .get("@secondTodo").should("have.text", "buy some sausages")
-        .get("@todos").eq(2).should("have.text", TODO_ITEM_THREE)
+        .get("@todos").eq(0).should("contain", TODO_ITEM_ONE)
+        .get("@secondTodo").should("contain", "buy some sausages")
+        .get("@todos").eq(2).should("contain", TODO_ITEM_THREE)
     })
 
     it("should remove the item if an empty text string was entered [00n]", function(){
@@ -328,9 +328,9 @@ describe("TodoMVC - React [000]", function(){
         .get("@secondTodo")
           .find(".edit").clear().type("foo{esc}")
 
-        .get("@todos").eq(0).should("have.text", TODO_ITEM_ONE)
-        .get("@todos").eq(1).should("have.text", TODO_ITEM_TWO)
-        .get("@todos").eq(2).should("have.text", TODO_ITEM_THREE)
+        .get("@todos").eq(0).should("contain", TODO_ITEM_ONE)
+        .get("@todos").eq(1).should("contain", TODO_ITEM_TWO)
+        .get("@todos").eq(2).should("contain", TODO_ITEM_THREE)
     })
   })
 
@@ -353,7 +353,6 @@ describe("TodoMVC - React [000]", function(){
       cy
         .get("@todos").eq(0).find(".toggle").check()
         .get(".clear-completed").contains("Clear completed")
-
     })
 
     it("should remove completed items when clicked [00t]", function(){
@@ -361,15 +360,15 @@ describe("TodoMVC - React [000]", function(){
         .get("@todos").eq(1).find(".toggle").check()
         .get(".clear-completed").click()
         .get("@todos").should("have.length", 2)
-        .get("@todos").eq(0).should("have.text", TODO_ITEM_ONE)
-        .get("@todos").eq(1).should("have.text", TODO_ITEM_THREE)
+        .get("@todos").eq(0).should("contain", TODO_ITEM_ONE)
+        .get("@todos").eq(1).should("contain", TODO_ITEM_THREE)
     })
 
     it("should be hidden when there are no items that are completed [00u]", function(){
       cy
         .get("@todos").eq(1).find(".toggle").check()
-        .get(".clear-completed", {visible: true}).click()
-        .get(".clear-completed", {exist: false})
+        .get(".clear-completed").should("be.visible").click()
+        .get(".clear-completed").should("not.exist")
     })
   })
 
@@ -379,8 +378,8 @@ describe("TodoMVC - React [000]", function(){
       // by writing out this function
       function testState() {
         cy
-          .get("@firstTodo").should("have.text", TODO_ITEM_ONE).and("have.class", "completed")
-          .get("@secondTodo").should("have.text", TODO_ITEM_TWO).and("not.have.class", "completed")
+          .get("@firstTodo").should("contain", TODO_ITEM_ONE).and("have.class", "completed")
+          .get("@secondTodo").should("contain", TODO_ITEM_TWO).and("not.have.class", "completed")
       }
 
       cy
@@ -413,8 +412,8 @@ describe("TodoMVC - React [000]", function(){
       cy
         .get("@todos").eq(1).find(".toggle").check()
         .get(".filters").contains("Active").click()
-        .get("@todos").eq(0).should("have.text", TODO_ITEM_ONE)
-        .get("@todos").eq(1).should("have.text", TODO_ITEM_THREE)
+        .get("@todos").eq(0).should("contain", TODO_ITEM_ONE)
+        .get("@todos").eq(1).should("contain", TODO_ITEM_THREE)
     })
 
     it("should respect the back button [00z]", function(){
@@ -457,14 +456,9 @@ describe("TodoMVC - React [000]", function(){
         // using a within here which will automatically scope
         // nested 'cy' queries to our parent element <ul.filters>
         .get(".filters").within(function(){
-          // we're introducing 'eventually' assertions here which retry their
-          // assertion until they become truthy. In this situation React
-          // applies the class fast enough to probably not need this, but in
-          // other JS frameworks which have their own digest loop *cough angular*
-          // or any other async actions is a great use case for the 'eventually' flag
-          cy.contains("All").should("eventually.have.class", "selected")
-          cy.contains("Active").click().should("eventually.have.class", "selected")
-          cy.contains("Completed").click().should("eventually.have.class", "selected")
+          cy.contains("All").should("have.class", "selected")
+          cy.contains("Active").click().should("have.class", "selected")
+          cy.contains("Completed").click().should("have.class", "selected")
         })
     })
   })
