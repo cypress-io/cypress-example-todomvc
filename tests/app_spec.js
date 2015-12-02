@@ -31,7 +31,7 @@ describe("TodoMVC - React [000]", function(){
     // before each test, which serves us the
     // TodoMVC App we want to test against
     //
-    // https://github.com/cypress-io/cypress/wiki/visit
+    // http://on.cypress.io/visit
     cy.visit("http://localhost:8888")
   })
 
@@ -40,7 +40,7 @@ describe("TodoMVC - React [000]", function(){
       // get the currently focused element and assert
       // that it has class="new-todo"
       //
-      // https://github.com/cypress-io/cypress/wiki/focused
+      // http://on.cypress.io/focused
       cy.focused().should("have.class", "new-todo")
     })
   })
@@ -52,8 +52,8 @@ describe("TodoMVC - React [000]", function(){
       // parse through. Instead we'll opt to use real selectors
       // so as to make our testing intentions as clear as possible.
       //
-      // https://github.com/cypress-io/cypress/wiki/commands#options
-      // https://github.com/cypress-io/cypress/wiki/get
+      // http://on.cypress.io/commands#options
+      // http://on.cypress.io/get
       cy
         .get(".todo-list li").should("not.exist")
         .get(".main").should("not.exist")
@@ -63,16 +63,16 @@ describe("TodoMVC - React [000]", function(){
 
   context("New Todo [005]", function(){
     // New commands used here:
-    // - cy.type     https://github.com/cypress-io/cypress/wiki/type
-    // - cy.eq       https://github.com/cypress-io/cypress/wiki/eq
-    // - cy.find     https://github.com/cypress-io/cypress/wiki/find
-    // - cy.contains https://github.com/cypress-io/cypress/wiki/contains
-    // - cy.should   https://github.com/cypress-io/cypress/wiki/should
-    // - cy.as       https://github.com/cypress-io/cypress/wiki/as
+    // - cy.type     http://on.cypress.io/type
+    // - cy.eq       http://on.cypress.io/eq
+    // - cy.find     http://on.cypress.io/find
+    // - cy.contains http://on.cypress.io/contains
+    // - cy.should   http://on.cypress.io/should
+    // - cy.as       http://on.cypress.io/as
 
     // New concepts introduced:
-    // - Aliasing    https://github.com/cypress-io/cypress/wiki/aliasing
-    // - Assertions  https://github.com/cypress-io/cypress/wiki/assertions
+    // - Aliasing    http://on.cypress.io/aliasing
+    // - Assertions  http://on.cypress.io/assertions
 
     it("should allow me to add todo items [006]", function(){
       cy
@@ -138,8 +138,8 @@ describe("TodoMVC - React [000]", function(){
 
   context("Mark all as completed [00b]", function(){
     // New commands used here:
-    // - cy.check    https://github.com/cypress-io/cypress/wiki/check
-    // - cy.uncheck  https://github.com/cypress-io/cypress/wiki/uncheck
+    // - cy.check    http://on.cypress.io/check
+    // - cy.uncheck  http://on.cypress.io/uncheck
 
     beforeEach(function(){
       // This is an example of aliasing
@@ -201,7 +201,7 @@ describe("TodoMVC - React [000]", function(){
 
   context("Item [00g]", function(){
     // New commands used here:
-    // - cy.clear    https://github.com/cypress-io/cypress/wiki/clear
+    // - cy.clear    http://on.cypress.io/clear
 
     it("should allow me to mark items as complete [00f]", function(){
       cy
@@ -259,7 +259,7 @@ describe("TodoMVC - React [000]", function(){
 
   context("Editing [00j]", function(){
     // New commands used here:
-    // - cy.blur    https://github.com/cypress-io/cypress/wiki/blur
+    // - cy.blur    http://on.cypress.io/blur
 
     beforeEach(function(){
       cy.createDefaultTodos().as("todos")
@@ -399,10 +399,10 @@ describe("TodoMVC - React [000]", function(){
 
   context("Routing [00x]", function(){
     // New commands used here:
-    // - cy.window  https://github.com/cypress-io/cypress/wiki/window
-    // - cy.its     https://github.com/cypress-io/cypress/wiki/its
-    // - cy.invoke  https://github.com/cypress-io/cypress/wiki/invoke
-    // - cy.within  https://github.com/cypress-io/cypress/wiki/within
+    // - cy.window  http://on.cypress.io/window
+    // - cy.its     http://on.cypress.io/its
+    // - cy.invoke  http://on.cypress.io/invoke
+    // - cy.within  http://on.cypress.io/within
 
     beforeEach(function(){
       cy.createDefaultTodos().as("todos")
