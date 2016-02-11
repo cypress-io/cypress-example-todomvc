@@ -1,5 +1,7 @@
 # React App + Travis CI [![Build Status](https://travis-ci.org/cypress-io/examples-react-travis-ci.svg)](https://travis-ci.org/cypress-io/examples-react-travis-ci)
 
+![todomvc-gif](https://cloud.githubusercontent.com/assets/1268976/12985445/ad168098-d0c0-11e5-94e7-2f2e619bae93.gif)
+
 This repo contains an example React App, with the tests written in Cypress.
 
 Additionally this example app is configured to run tests in Travis CI.
