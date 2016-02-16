@@ -80,7 +80,8 @@ You should see `TodoMVC` up and running. We are now ready to run and write Cypre
 
 ## 3. Add the project to Cypress
 
-* Open the Cypress App -- just double click the app here: `/Applications/Cypress.app`
+* Open the Cypress App -- just double click the app here: `/Applications/Cypress.app`.
+* Authorize GitHub access to your account **(Note: this requires direct authorization from the Cypress team during Beta to allow your account email.)**
 * Add the `examples-react-travis-ci` directory into Cypress by clicking the `+` icon
 * Click on the project, and you'll see the `Server is Running` message.
 * Click on `http://localhost:2020`.
