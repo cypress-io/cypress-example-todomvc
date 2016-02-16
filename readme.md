@@ -25,7 +25,7 @@ It is assumed you have nothing installed except for `node` + `git`.
 If you get stuck, here is more help:
 
 * [Gitter Channel](https://gitter.im/cypress-io/cypress)
-* [Cypress Docs](https://github.com/cypress-io/cypress/wiki)
+* [Cypress Docs](https://docs.cypress.io)
 * [Cypress CLI Tool Docs](https://github.com/cypress-io/cypress-cli)
 
 ## 1. Install Cypress
