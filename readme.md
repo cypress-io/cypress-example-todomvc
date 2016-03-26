@@ -1,4 +1,4 @@
-# React App + Travis CI [![Build Status](https://travis-ci.org/cypress-io/examples-react-travis-ci.svg)](https://travis-ci.org/cypress-io/examples-react-travis-ci)
+# React App + Travis CI [![Build Status](https://travis-ci.org/cypress-io/cypress-example-todomvc.svg)](https://travis-ci.org/cypress-io/cypress-example-todomvc)
 
 ![todomvc-gif](https://cloud.githubusercontent.com/assets/1268976/12985445/ad168098-d0c0-11e5-94e7-2f2e619bae93.gif)
 
@@ -56,10 +56,10 @@ After forking this project in `Github`, run these commands:
 
 ```bash
 ## clone this repo to a local directory
-git clone https://github.com/<your-username>/examples-react-travis-ci.git
+git clone https://github.com/<your-username>/cypress-example-todomvc.git
 
 ## cd into the cloned repo
-cd examples-react-travis-ci
+cd cypress-example-todomvc
 
 ## install the node_modules
 npm install
@@ -82,17 +82,17 @@ You should see `TodoMVC` up and running. We are now ready to run and write Cypre
 
 * Open the Cypress App -- just double click the app here: `/Applications/Cypress.app`.
 * Authorize GitHub access to your account **(Note: this requires direct authorization from the Cypress team during Beta to allow your account email.)**
-* Add the `examples-react-travis-ci` directory into Cypress by clicking the `+` icon
+* Add the `cypress-example-todomvc` directory into Cypress by clicking the `+` icon
 * Click on the project, and you'll see the `Server is Running` message.
 * Click on `http://localhost:2020`.
 * Click `Run All Tests` inside of Cypress
 
 ![project](https://cloud.githubusercontent.com/assets/1268976/9286780/adad94b8-42c9-11e5-9a67-df7abb87fac0.gif)
 
-After adding `examples-react-travis-ci` to Cypress, Cypress will generate a `cypress.json` file here:
+After adding `cypress-example-todomvc` to Cypress, Cypress will generate a `cypress.json` file here:
 
 ```
-examples-react-travis-ci/cypress.json
+cypress-example-todomvc/cypress.json
 ```
 
 This file contains your unique `projectId`, and any specific Cypress configuration you add.
@@ -113,7 +113,7 @@ This secret key is how Cypress verifies your project is allowed to run in CI. Th
 #### Add your repo to Travis CI
 
 * Log into www.travis-ci.org
-* Switch `ON` your `examples-react-travis-ci` fork
+* Switch `ON` your `cypress-example-todomvc` fork
 
 ![add-to-travis](https://cloud.githubusercontent.com/assets/1268976/9291524/8e97f74c-4393-11e5-82af-ec1a52cf2c65.gif)
 
@@ -156,7 +156,7 @@ But if you're committing to a private github project this may not matter to you.
 
 To add this to your `.travis.yml` file:
 
-* Edit the `examples-react-travis-ci/.travis.yml` file
+* Edit the `cypress-example-todomvc/.travis.yml` file
 * Paste your secret project key as an argument to the `cypress ci` command.
 
 The command should look like:
