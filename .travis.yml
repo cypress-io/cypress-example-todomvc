@@ -5,12 +5,7 @@
 language: node_js
 
 node_js:
-  ## using 0.12 version of node
-  ## because earlier versions
-  ## of npm have bugs processing
-  ## args passed to the `npm`
-  ## command (used below)
-  - 0.12
+  - 5.3
 
 install:
   - npm install
@@ -18,7 +13,7 @@ install:
   ## install the Cypress CLI Tools
   ## which gives us access to the
   ## `cypress` command used below
-  - npm install -g cypress
+  - npm install -g cypress-cli
 
 before_script:
   ## runs the 'start' script which
@@ -40,7 +35,7 @@ before_script:
 script:
   ## now run cypress in CI mode
   ## which runs all of the tests
-  ## and uses the CYPRESS_CI_KEY
+  ## and uses the CYPRESS_API_KEY
   ## environment var by default
   ## which you need to configure
   ## on Travis CI behind the scenes
