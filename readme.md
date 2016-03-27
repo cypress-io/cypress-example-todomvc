@@ -1,4 +1,4 @@
-# React App + Travis CI [![Build Status](https://travis-ci.org/cypress-io/examples-react-travis-ci.svg)](https://travis-ci.org/cypress-io/examples-react-travis-ci)
+# React App + Travis CI [![Build Status](https://travis-ci.org/cypress-io/cypress-example-todomvc.svg)](https://travis-ci.org/cypress-io/cypress-example-todomvc)
 
 This repo contains an example React App, with the tests written in Cypress.
 
@@ -14,21 +14,9 @@ The [tests are heavily commented](tests/app_spec.js) to ease you into the Cypres
 [And here.](https://github.com/tastejs/todomvc/blob/master/tests/page.js) <br>
 [And here.](https://github.com/tastejs/todomvc/blob/master/tests/testOperations.js)
 
-## Help + Documentation
-
-The steps below will take you all the way through Cypress.
-
-It is assumed you have nothing installed except for `node` + `git`.
-
-If you get stuck, here is more help:
-
-* [Gitter Channel](https://gitter.im/cypress-io/cypress)
-* [Cypress Docs](https://github.com/cypress-io/cypress/wiki)
-* [Cypress CLI Tool Docs](https://github.com/cypress-io/cypress-cli)
-
 ## Running Tests in Cypress
 
-- [Install Cypress](https://docs.cypress.io/docs/installing-and-running#section-installing)
-- [Add the `examples-react-travis-ci` folder as a project](https://docs.cypress.io/docs/installing-and-running#section-adding-projects) in Cypress.
+- [Install Cypress](https://on.cypress.io/guides/installing-and-running#section-installing)
+- [Add the `cypress-example-piechopper` folder as a project](https://on.cypress.io/guides/installing-and-running#section-adding-projects) in Cypress.
 - Click `app_spec.js` or `Run All Tests` in the Cypress runner.
-- [Read how to setup Continous Integration in TravisCI](https://docs.cypress.io/docs/continuous-integration).
+- [Read how to setup Continous Integration in CircleCI](https://on.cypress.io/guides/continuous-integration).
