@@ -5,12 +5,7 @@
 language: node_js
 
 node_js:
-  ## using 0.12 version of node
-  ## because earlier versions
-  ## of npm have bugs processing
-  ## args passed to the `npm`
-  ## command (used below)
-  - 0.12
+  - 5.3
 
 install:
   - npm install
@@ -18,7 +13,7 @@ install:
   ## install the Cypress CLI Tools
   ## which gives us access to the
   ## `cypress` command used below
-  - npm install -g cypress
+  - npm install -g cypress-cli
 
 before_script:
   ## runs the 'start' script which
