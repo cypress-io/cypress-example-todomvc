@@ -10,7 +10,7 @@ The tests are written to be directly compared to the official TodoMVC tests.
 
 Each test covers the same functionality found in the official TodoMVC tests but utilizes the Cypress API.
 
-The [tests are heavily commented](tests/app_spec.js) to ease you into the Cypress API.
+The [tests are heavily commented](cypress/integration/app_spec.js) to ease you into the Cypress API.
 
 [You can find the official TodoMVC tests we are comparing to here.](https://github.com/tastejs/todomvc/blob/master/tests/test.js) <br>
 [And here.](https://github.com/tastejs/todomvc/blob/master/tests/page.js) <br>
@@ -19,6 +19,6 @@ The [tests are heavily commented](tests/app_spec.js) to ease you into the Cypres
 ## Running Tests in Cypress
 
 - [Install Cypress](https://on.cypress.io/guides/installing-and-running#section-installing)
-- [Add the `cypress-example-piechopper` folder as a project](https://on.cypress.io/guides/installing-and-running#section-adding-projects) in Cypress.
+- [Add the `cypress-example-todomvc` folder as a project](https://on.cypress.io/guides/installing-and-running#section-adding-projects) in Cypress.
 - Click `app_spec.js` or `Run All Tests` in the Cypress runner.
 - [Read how to setup Continous Integration in CircleCI](https://on.cypress.io/guides/continuous-integration).
