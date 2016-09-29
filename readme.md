@@ -4,7 +4,7 @@
 
 This repo contains an example React App, with the tests written in Cypress.
 
-Additionally this example app is configured to run tests in Travis CI.
+Additionally this example app is configured to run tests in Circle CI and Travis CI.
 
 The tests are written to be directly compared to the official TodoMVC tests.
 
@@ -12,13 +12,52 @@ Each test covers the same functionality found in the official TodoMVC tests but 
 
 The [tests are heavily commented](cypress/integration/app_spec.js) to ease you into the Cypress API.
 
-[You can find the official TodoMVC tests we are comparing to here.](https://github.com/tastejs/todomvc/blob/master/tests/test.js) <br>
-[And here.](https://github.com/tastejs/todomvc/blob/master/tests/page.js) <br>
-[And here.](https://github.com/tastejs/todomvc/blob/master/tests/testOperations.js)
+[You can find the official TodoMVC tests we are comparing to here.](https://github.com/tastejs/todomvc/blob/master/tests/test.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/page.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/testOperations.js)
 
-## Running Tests in Cypress
+## Help + Testing
 
-- [Install Cypress](https://on.cypress.io/guides/installing-and-running#section-installing)
-- [Add the `cypress-example-todomvc` folder as a project](https://on.cypress.io/guides/installing-and-running#section-adding-projects) in Cypress.
-- Click `app_spec.js` or `Run All Tests` in the Cypress runner.
-- [Read how to setup Continous Integration in CircleCI](https://on.cypress.io/guides/continuous-integration).
+The steps below will take you all the way through Cypress. It is assumed you have nothing installed except for node + git.
+
+**If you get stuck, here is more help:**
+
+* [Gitter Channel](https://gitter.im/cypress-io/cypress)
+* [Cypress Docs](https://on.cypress.io)
+* [Cypress CLI Tool Docs](https://github.com/cypress-io/cypress-cli)
+
+### 1. Install Cypress
+
+[Follow these instructions to install Cypress.](https://on.cypress.io/guides/installing-and-running#section-installing)
+
+### 2. Fork this repo
+
+If you want to experiment with running this project in Continous Integration, you'll need to [fork](https://github.com/cypress-io/cypress-example-todomvc#fork-destination-box) it first.
+
+After forking this project in `Github`, run these commands:
+
+```bash
+## clone this repo to a local directory
+git clone https://github.com/<your-username>/cypress-example-todomvc.git
+
+## cd into the cloned repo
+cd cypress-example-todomvc
+
+## install the node_modules
+npm install
+
+## start the local webserver
+npm start
+```
+
+The `npm start` script will spawn a webserver on port `8888` which hosts the TodoMVC app.
+
+You can verify this by opening your browser and navigating to: [`http://localhost:8888`](http://localhost:8888)
+
+You should see the TodoMVC app up and running. We are now ready to run Cypress tests.
+
+### 3. Add the project to Cypress
+
+[Follow these instructions to add the project to Cypress.](https://on.cypress.io/guides/installing-and-running#section-adding-projects)
+
+### 4. Run in Continuous Integration
+
+[Follow these instructions to run the tests in CI.](https://on.cypress.io/guides/continuous-integration#section-running-in-ci)
