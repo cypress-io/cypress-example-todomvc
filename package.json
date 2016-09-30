@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "http-server -p 8888",
+    "start": "http-server -p 8888 -c-1",
     "test": "npm run start & cypress run"
   },
   "dependencies": {
