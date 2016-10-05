@@ -31,7 +31,7 @@ describe("TodoMVC - React", function(){
     // before each test, which serves us the
     // TodoMVC App we want to test against
     //
-    // http://on.cypress.io/visit
+    // https://on.cypress.io/api/visit
     cy.visit("http://localhost:8888")
   })
 
@@ -40,7 +40,7 @@ describe("TodoMVC - React", function(){
       // get the currently focused element and assert
       // that it has class="new-todo"
       //
-      // http://on.cypress.io/focused
+      // https://on.cypress.io/api/focused
       cy.focused().should("have.class", "new-todo")
     })
   })
@@ -52,8 +52,7 @@ describe("TodoMVC - React", function(){
       // parse through. Instead we'll opt to use real selectors
       // so as to make our testing intentions as clear as possible.
       //
-      // http://on.cypress.io/commands#options
-      // http://on.cypress.io/get
+      // https://on.cypress.io/api/get
       cy
         .get(".todo-list li").should("not.exist")
         .get(".main").should("not.exist")
@@ -63,16 +62,16 @@ describe("TodoMVC - React", function(){
 
   context("New Todo", function(){
     // New commands used here:
-    // - cy.type     http://on.cypress.io/type
-    // - cy.eq       http://on.cypress.io/eq
-    // - cy.find     http://on.cypress.io/find
-    // - cy.contains http://on.cypress.io/contains
-    // - cy.should   http://on.cypress.io/should
-    // - cy.as       http://on.cypress.io/as
+    // - cy.type     https://on.cypress.io/api/type
+    // - cy.eq       https://on.cypress.io/api/eq
+    // - cy.find     https://on.cypress.io/api/find
+    // - cy.contains https://on.cypress.io/api/contains
+    // - cy.should   https://on.cypress.io/api/should
+    // - cy.as       https://on.cypress.io/api/as
 
     // New concepts introduced:
-    // - Aliasing    http://on.cypress.io/aliasing
-    // - Assertions  http://on.cypress.io/assertions
+    // - Aliasing    https://on.cypress.io/api/aliasing
+    // - Assertions  https://on.cypress.io/api/assertions
 
     it("should allow me to add todo items", function(){
       cy
@@ -138,8 +137,8 @@ describe("TodoMVC - React", function(){
 
   context("Mark all as completed", function(){
     // New commands used here:
-    // - cy.check    http://on.cypress.io/check
-    // - cy.uncheck  http://on.cypress.io/uncheck
+    // - cy.check    https://on.cypress.io/api/check
+    // - cy.uncheck  https://on.cypress.io/api/uncheck
 
     beforeEach(function(){
       // This is an example of aliasing
@@ -201,7 +200,7 @@ describe("TodoMVC - React", function(){
 
   context("Item", function(){
     // New commands used here:
-    // - cy.clear    http://on.cypress.io/clear
+    // - cy.clear    https://on.cypress.io/api/clear
 
     it("should allow me to mark items as complete", function(){
       cy
@@ -259,7 +258,7 @@ describe("TodoMVC - React", function(){
 
   context("Editing", function(){
     // New commands used here:
-    // - cy.blur    http://on.cypress.io/blur
+    // - cy.blur    https://on.cypress.io/api/blur
 
     beforeEach(function(){
       cy.createDefaultTodos().as("todos")
@@ -399,10 +398,10 @@ describe("TodoMVC - React", function(){
 
   context("Routing", function(){
     // New commands used here:
-    // - cy.window  http://on.cypress.io/window
-    // - cy.its     http://on.cypress.io/its
-    // - cy.invoke  http://on.cypress.io/invoke
-    // - cy.within  http://on.cypress.io/within
+    // - cy.window  https://on.cypress.io/api/window
+    // - cy.its     https://on.cypress.io/api/its
+    // - cy.invoke  https://on.cypress.io/api/invoke
+    // - cy.within  https://on.cypress.io/api/within
 
     beforeEach(function(){
       cy.createDefaultTodos().as("todos")
