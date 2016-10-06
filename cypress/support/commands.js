@@ -1,6 +1,7 @@
 // ***********************************************
 // This example commands.js shows you how to
-// create the custom command: 'login'.
+// create the custom commands: 'createDefaultTodos'
+// and 'createTodo'.
 //
 // The commands.js file is a great place to
 // modify existing commands and create custom
