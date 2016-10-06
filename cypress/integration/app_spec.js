@@ -97,8 +97,8 @@ describe("TodoMVC - React", function(){
     it("should append new items to the bottom of the list", function(){
       cy
         // this is an example of a custom command
-        // which is stored in tests/_support/spec_helper.js
-        // you should open up the spec_helper and look at
+        // which is stored in cypress/support/commands.js
+        // you should open up the commands and look at
         // the comments!
         .createDefaultTodos().as("todos")
 
