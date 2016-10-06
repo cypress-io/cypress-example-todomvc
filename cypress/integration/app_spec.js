@@ -90,8 +90,10 @@ describe("TodoMVC - React", function(){
 
     it("should clear text input field when an item is added", function(){
       cy
-        .get(".new-todo").type(TODO_ITEM_ONE).type("{enter}")
-        .get(".new-todo").should("have.text", "")
+        .get(".new-todo")
+        .type(TODO_ITEM_ONE)
+        .type("{enter}")
+        .should("have.value", "")
     })
 
     it("should append new items to the bottom of the list", function(){
