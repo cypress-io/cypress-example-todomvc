@@ -31,8 +31,11 @@ describe("TodoMVC - React", function(){
     // before each test, which serves us the
     // TodoMVC App we want to test against
     //
+    // We've set our baseUrl to be http://localhost:8888
+    // which is automatically prepended to cy.visit
+    //
     // https://on.cypress.io/api/visit
-    cy.visit("http://localhost:8888")
+    cy.visit("/")
   })
 
   context("When page is initially opened", function(){
@@ -390,9 +393,7 @@ describe("TodoMVC - React", function(){
 
         .then(testState)
 
-        // visit will automatically visit about:blank
-        // before actually visiting the url
-        .visit("http://localhost:8888")
+        .reload()
 
         .then(testState)
     })
