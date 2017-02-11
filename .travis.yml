@@ -45,4 +45,4 @@ script:
   ## a specific record key to use
   ## like this without having to
   ## configure environment variables
-  - cypress run --key <your_record_key>
+  ## - cypress run --key <your_record_key>
