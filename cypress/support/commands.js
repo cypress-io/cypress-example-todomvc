@@ -10,24 +10,24 @@
 // https://on.cypress.io/api/commands
 // ***********************************************
 
-Cypress.Commands.add("createDefaultTodos", function(){
+Cypress.Commands.add('createDefaultTodos', function(){
 
-  var TODO_ITEM_ONE   = "buy some cheese"
-  var TODO_ITEM_TWO   = "feed the cat"
-  var TODO_ITEM_THREE = "book a doctors appointment"
+  var TODO_ITEM_ONE   = 'buy some cheese'
+  var TODO_ITEM_TWO   = 'feed the cat'
+  var TODO_ITEM_THREE = 'book a doctors appointment'
 
   // begin the command here, which by will display
   // as a 'spinning blue state' in the UI to indicate
   // the command is running
   var cmd = Cypress.Log.command({
-    name: "create default todos",
+    name: 'create default todos',
     message: [],
     consoleProps: function(){
       // we're creating our own custom message here
       // which will print out to our browsers console
       // whenever we click on this command
       return {
-        "Inserted Todos": [TODO_ITEM_ONE, TODO_ITEM_TWO, TODO_ITEM_THREE]
+        'Inserted Todos': [TODO_ITEM_ONE, TODO_ITEM_TWO, TODO_ITEM_THREE]
       }
     }
   })
@@ -36,13 +36,12 @@ Cypress.Commands.add("createDefaultTodos", function(){
   // sub-commands so none of them will output to
   // our command log
 
-  cy
-    .get(".new-todo", {log: false})
-      .type(TODO_ITEM_ONE   + "{enter}", {log: false})
-      .type(TODO_ITEM_TWO   + "{enter}", {log: false})
-      .type(TODO_ITEM_THREE + "{enter}", {log: false})
+  cy.get('.new-todo', {log: false})
+    .type(TODO_ITEM_ONE   + '{enter}', {log: false})
+    .type(TODO_ITEM_TWO   + '{enter}', {log: false})
+    .type(TODO_ITEM_THREE + '{enter}', {log: false})
 
-    .get(".todo-list li", {log: false})
+  cy.get('.todo-list li', {log: false})
     .then(function($listItems){
       // once we're done inserting each of the todos
       // above we want to return the .todo-list li's
@@ -54,27 +53,27 @@ Cypress.Commands.add("createDefaultTodos", function(){
     })
 })
 
-Cypress.Commands.add("createTodo", function(todo){
+Cypress.Commands.add('createTodo', function(todo){
 
   var cmd = Cypress.Log.command({
-    name: "create todo",
+    name: 'create todo',
     message: todo,
     consoleProps: function(){
       return {
-        "Inserted Todo": todo
+        'Inserted Todo': todo
       }
     }
   })
 
-  cy
-    // create the todo
-    .get(".new-todo", {log: false}).type(todo + "{enter}", {log: false})
+  // create the todo
+  cy.get('.new-todo', {log: false}).type(todo + '{enter}', {log: false})
 
-    // now go find the actual todo
-    // in the todo list so we can
-    // easily alias this in our tests
-    // and set the $el so its highlighted
-    .get(".todo-list", {log: false}).contains("li", todo.trim(), {log: false})
+  // now go find the actual todo
+  // in the todo list so we can
+  // easily alias this in our tests
+  // and set the $el so its highlighted
+  cy.get('.todo-list', {log: false})
+    .contains('li', todo.trim(), {log: false})
     .then(function($li){
       // set the $el for the command so
       // it highlights when we hover over
