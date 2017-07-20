@@ -10,7 +10,7 @@
 // https://on.cypress.io/api/commands
 // ***********************************************
 
-Cypress.addParentCommand("createDefaultTodos", function(){
+Cypress.Commands.add("createDefaultTodos", function(){
 
   var TODO_ITEM_ONE   = "buy some cheese"
   var TODO_ITEM_TWO   = "feed the cat"
@@ -22,7 +22,7 @@ Cypress.addParentCommand("createDefaultTodos", function(){
   var cmd = Cypress.Log.command({
     name: "create default todos",
     message: [],
-    onConsole: function(){
+    consoleProps: function(){
       // we're creating our own custom message here
       // which will print out to our browsers console
       // whenever we click on this command
@@ -37,9 +37,6 @@ Cypress.addParentCommand("createDefaultTodos", function(){
   // our command log
 
   cy
-    //allow chaining onto this custom command
-    .chain()
-
     .get(".new-todo", {log: false})
       .type(TODO_ITEM_ONE   + "{enter}", {log: false})
       .type(TODO_ITEM_TWO   + "{enter}", {log: false})
@@ -57,12 +54,12 @@ Cypress.addParentCommand("createDefaultTodos", function(){
     })
 })
 
-Cypress.addParentCommand("createTodo", function(todo){
+Cypress.Commands.add("createTodo", function(todo){
 
   var cmd = Cypress.Log.command({
     name: "create todo",
     message: todo,
-    onConsole: function(){
+    consoleProps: function(){
       return {
         "Inserted Todo": todo
       }
@@ -70,9 +67,6 @@ Cypress.addParentCommand("createTodo", function(todo){
   })
 
   cy
-    // allow chaining onto this custom command
-    .chain()
-
     // create the todo
     .get(".new-todo", {log: false}).type(todo + "{enter}", {log: false})
 
