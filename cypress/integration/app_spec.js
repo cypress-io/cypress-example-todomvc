@@ -4,11 +4,8 @@
 //
 // The Cypress tests cover the exact same functionality,
 // and match the same test names as TodoMVC.
-//
-// Most tests are heavily commented because this example
-// app should serve as an introduction to Cypress. Once
-// you become familiar with the API these comments are
-// completely unnecessary.
+// Please read our getting started guide
+// https://on.cypress.io/introduction-to-cypress
 //
 // You can find the original TodoMVC tests here:
 // https://github.com/tastejs/todomvc/blob/master/tests/test.js
@@ -31,8 +28,11 @@ describe('TodoMVC - React', function(){
     // before each test, which serves us the
     // TodoMVC App we want to test against
     //
-    // http://on.cypress.io/visit
-    cy.visit('http://localhost:8888')
+    // We've set our baseUrl to be http://localhost:8888
+    // which is automatically prepended to cy.visit
+    //
+    // https://on.cypress.io/api/visit
+    cy.visit("/")
   })
 
   context('When page is initially opened', function(){
@@ -52,7 +52,6 @@ describe('TodoMVC - React', function(){
       // parse through. Instead we'll opt to use real selectors
       // so as to make our testing intentions as clear as possible.
       //
-      // http://on.cypress.io/commands#options
       // http://on.cypress.io/get
       cy.get('.todo-list li').should('not.exist')
       cy.get('.main').should('not.exist')
@@ -62,16 +61,12 @@ describe('TodoMVC - React', function(){
 
   context('New Todo', function(){
     // New commands used here:
-    // - cy.type     http://on.cypress.io/type
-    // - cy.eq       http://on.cypress.io/eq
-    // - cy.find     http://on.cypress.io/find
-    // - cy.contains http://on.cypress.io/contains
-    // - cy.should   http://on.cypress.io/should
-    // - cy.as       http://on.cypress.io/as
-
-    // New concepts introduced:
-    // - Aliasing    http://on.cypress.io/aliasing
-    // - Assertions  http://on.cypress.io/assertions
+    // https://on.cypress.io/type
+    // https://on.cypress.io/eq
+    // https://on.cypress.io/find
+    // https://on.cypress.io/contains
+    // https://on.cypress.io/should
+    // https://on.cypress.io/as
 
     it('should allow me to add todo items', function(){
       // create 1st todo
@@ -132,8 +127,8 @@ describe('TodoMVC - React', function(){
 
   context('Mark all as completed', function(){
     // New commands used here:
-    // - cy.check    http://on.cypress.io/check
-    // - cy.uncheck  http://on.cypress.io/uncheck
+    // - cy.check    https://on.cypress.io/api/check
+    // - cy.uncheck  https://on.cypress.io/api/uncheck
 
     beforeEach(function(){
       // This is an example of aliasing
@@ -192,7 +187,7 @@ describe('TodoMVC - React', function(){
 
   context('Item', function(){
     // New commands used here:
-    // - cy.clear    http://on.cypress.io/clear
+    // - cy.clear    https://on.cypress.io/api/clear
 
     it('should allow me to mark items as complete', function(){
       // we are aliasing the return value of
@@ -247,7 +242,7 @@ describe('TodoMVC - React', function(){
 
   context('Editing', function(){
     // New commands used here:
-    // - cy.blur    http://on.cypress.io/blur
+    // - cy.blur    https://on.cypress.io/api/blur
 
     beforeEach(function(){
       cy.createDefaultTodos().as('todos')
@@ -364,19 +359,17 @@ describe('TodoMVC - React', function(){
       cy.get('@firstTodo').find('.toggle').check()
         .then(testState)
 
-      // visit will automatically visit about:blank
-      // before actually visiting the url
-      cy.visit('http://localhost:8888')
+        .reload()
         .then(testState)
     })
   })
 
   context('Routing', function(){
     // New commands used here:
-    // - cy.window  http://on.cypress.io/window
-    // - cy.its     http://on.cypress.io/its
-    // - cy.invoke  http://on.cypress.io/invoke
-    // - cy.within  http://on.cypress.io/within
+    // https://on.cypress.io/window
+    // https://on.cypress.io/its
+    // https://on.cypress.io/invoke
+    // https://on.cypress.io/within
 
     beforeEach(function(){
       cy.createDefaultTodos().as('todos')

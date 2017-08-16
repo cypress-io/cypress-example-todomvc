@@ -1,13 +1,14 @@
 // ***********************************************
 // This example commands.js shows you how to
-// create the custom command: 'login'.
+// create the custom commands: 'createDefaultTodos'
+// and 'createTodo'.
 //
 // The commands.js file is a great place to
 // modify existing commands and create custom
 // commands for use throughout your tests.
 //
 // You can read more about custom commands here:
-// https://on.cypress.io/api/commands
+// https://on.cypress.io/commands
 // ***********************************************
 
 Cypress.Commands.add('createDefaultTodos', function(){
@@ -19,7 +20,7 @@ Cypress.Commands.add('createDefaultTodos', function(){
   // begin the command here, which by will display
   // as a 'spinning blue state' in the UI to indicate
   // the command is running
-  var cmd = Cypress.Log.command({
+  var cmd = Cypress.log({
     name: 'create default todos',
     message: [],
     consoleProps: function(){
@@ -55,7 +56,7 @@ Cypress.Commands.add('createDefaultTodos', function(){
 
 Cypress.Commands.add('createTodo', function(todo){
 
-  var cmd = Cypress.Log.command({
+  var cmd = Cypress.log({
     name: 'create todo',
     message: todo,
     consoleProps: function(){
