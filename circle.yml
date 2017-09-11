@@ -6,11 +6,6 @@ dependencies:
   pre:
     - npm install
 
-    ## install the Cypress CLI Tools
-    ## which gives us access to the
-    ## `cypress` command used below
-    - npm install -g cypress-cli
-
 test:
   pre:
     ## runs the 'start' script which
@@ -25,10 +20,10 @@ test:
     ## CYPRESS_RECORD_KEY environment
     ## variable by default and apply
     ## this to the run.
-    - cypress run --record
+    - npm run cypress:run -- --record
 
     ## alternatively we could specify
     ## a specific record key to use
     ## like this without having to
     ## configure environment variables
-    ## - cypress run --record --key <your_record_key>
+    ## - npm run cypress:run -- --record --key <your_record_key>
