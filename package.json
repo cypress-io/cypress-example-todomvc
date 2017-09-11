@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "cypress:run": "cypress run --record",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "start": "http-server -p 8888 -c-1",
     "test": "npm run start & cypress run"
   },
