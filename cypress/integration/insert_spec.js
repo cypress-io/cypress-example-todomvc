@@ -3,5 +3,5 @@ beforeEach(() => {
 })
 it('can insert new todo', () => {
   cy.get('.new-todo').type('first todo{enter}')
-  cy.get('ul.todo-list').find('li').should('have.length', 2)
+  cy.get('ul.todo-list').find('li').should('have.length', 1)
 })
