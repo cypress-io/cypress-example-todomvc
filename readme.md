@@ -1,4 +1,5 @@
 # TodoMVC [![Travis CI](https://travis-ci.org/cypress-io/cypress-example-todomvc.svg)](https://travis-ci.org/cypress-io/cypress-example-todomvc) [![Circle CI](https://circleci.com/gh/cypress-io/cypress-example-todomvc.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-todomvc)
+[![Build status](https://ci.appveyor.com/api/projects/status/6wjyoye82orkkyny?svg=true)](https://ci.appveyor.com/project/cypress-io/cypress-example-todomvc)
 
 ![todomvc-gif](https://cloud.githubusercontent.com/assets/1268976/12985445/ad168098-d0c0-11e5-94e7-2f2e619bae93.gif)
 
