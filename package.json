@@ -4,6 +4,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "start": "http-server -p 8888 -c-1",
+    "start-ci": "http-server -p 8888 -c-1 --silent",
     "test": "npm run start & cypress run"
   },
   "dependencies": {
