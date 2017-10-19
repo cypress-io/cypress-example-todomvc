@@ -10,11 +10,11 @@
   "dependencies": {
     "director": "^1.2.0",
     "http-server": "0.10.0",
-    "react": "^0.13.3",
-    "todomvc-app-css": "2.0.6",
+    "react": "^16.0.0",
+    "todomvc-app-css": "2.1.0",
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
-    "cypress": "1.0.1"
+    "cypress": "1.0.2"
   }
 }
