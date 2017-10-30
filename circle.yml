@@ -27,3 +27,8 @@ test:
     ## like this without having to
     ## configure environment variables
     ## - npm run cypress:run -- --record --key <your_record_key>
+
+    ## you can also start the server and
+    ## run e2e tests and shut down server with
+    ## a single command
+    ## - npm run test:ci

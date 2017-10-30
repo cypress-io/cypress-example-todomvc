@@ -4,8 +4,9 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "start": "http-server -p 8888 -c-1",
-    "start-ci": "http-server -p 8888 -c-1 --silent",
-    "test": "npm run start & cypress run"
+    "start:ci": "http-server -p 8888 -c-1 --silent",
+    "test": "npm run start & cypress run",
+    "test:ci": "run-p --race start:ci cypress:run"
   },
   "dependencies": {
     "director": "^1.2.0",
@@ -15,6 +16,7 @@
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
-    "cypress": "1.0.3"
+    "cypress": "1.0.3",
+    "npm-run-all": "4.1.1"
   }
 }
