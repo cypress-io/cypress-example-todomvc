@@ -3,10 +3,12 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome",
     "start": "http-server -p 8888 -c-1",
     "start:ci": "http-server -p 8888 -c-1 --silent",
     "test": "npm run start & cypress run",
-    "test:ci": "run-p --race start:ci cypress:run"
+    "test:ci": "run-p --race start:ci cypress:run",
+    "test:ci:chrome": "run-p --race start:ci cypress:run:chrome"
   },
   "dependencies": {
     "director": "^1.2.0",
