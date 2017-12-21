@@ -3,6 +3,8 @@ machine:
     version: 6
 
 dependencies:
+  cache_directories:
+    - node_modules
   pre:
     - npm install
 
