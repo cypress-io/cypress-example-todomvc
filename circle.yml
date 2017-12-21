@@ -8,6 +8,9 @@ dependencies:
 
 test:
   pre:
+    ## lint our code
+    - npm run lint
+
     ## runs the 'start' script which
     ## boots our local app server on port 8080
     ## which cypress expects to be running

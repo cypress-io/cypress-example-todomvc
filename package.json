@@ -14,7 +14,8 @@
     "test:ci": "run-p --race start:ci cypress:run",
     "test:ci:record": "run-p --race start:ci cypress:run:record",
     "test:ci:chrome": "run-p --race start:ci cypress:run:chrome",
-    "test:ci:headed": "run-p --race start:ci cypress:run:headed"
+    "test:ci:headed": "run-p --race start:ci cypress:run:headed",
+    "lint": "eslint --fix cypress/*/*.js"
   },
   "dependencies": {
     "director": "^1.2.0",
@@ -25,6 +26,9 @@
   },
   "devDependencies": {
     "cypress": "1.4.0",
+    "eslint": "4.13.1",
+    "eslint-plugin-cypress-dev": "1.1.2",
+    "eslint-plugin-mocha": "4.11.0",
     "npm-run-all": "4.1.2"
   }
 }
