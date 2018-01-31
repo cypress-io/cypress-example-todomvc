@@ -4,6 +4,7 @@ machine:
 
 dependencies:
   cache_directories:
+    - ~/.npm
     - node_modules
   pre:
     - npm install
