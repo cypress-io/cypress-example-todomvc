@@ -7,6 +7,10 @@ dependencies:
     - ~/.npm
     - ~/.cache
   pre:
+    # let's see the versions of the tools we use
+    - node -v
+    - npm -v
+  override:
     - npm ci
 
 test:
