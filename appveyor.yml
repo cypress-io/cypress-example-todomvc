@@ -1,17 +1,21 @@
 # https://www.appveyor.com/docs/lang/nodejs-iojs/
 # Test against the latest version of this Node.js version
 environment:
-  nodejs_version: "6"
+  nodejs_version: "10.3"
 
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node $env:nodejs_version
-  # NPM v3 has flaky permission issues on Windows
-  - npm install -g npm@5
   # Output useful info for debugging.
+  # npm should be > v6 (for "npm ci" command and good package lock handling)
   - node --version
   - npm --version
-  - npm install
+  - npm ci
+
+cache:
+  # cache NPM packages and Cypress binary (in .cache)
+  - '%USERPROFILE%\.npm'
+  - '%USERPROFILE%\.cache'
 
 # Post-install test scripts.
 test_script:
