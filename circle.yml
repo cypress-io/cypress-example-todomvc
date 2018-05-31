@@ -1,13 +1,13 @@
 machine:
   node:
-    version: 6
+    version: 10.3
 
 dependencies:
   cache_directories:
     - ~/.npm
-    - node_modules
+    - ~/.cache
   pre:
-    - npm install
+    - npm ci
 
 test:
   pre:
