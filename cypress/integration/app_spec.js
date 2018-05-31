@@ -14,7 +14,7 @@
 // https://github.com/tastejs/todomvc/blob/master/tests/test.js
 // ***********************************************
 
-describe('TodoMVC - React', function () {
+describe.skip('TodoMVC - React', function () {
 
   // setup these constants to match what TodoMVC does
   let TODO_ITEM_ONE = 'buy some cheese'
