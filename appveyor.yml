@@ -6,6 +6,8 @@ environment:
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node $env:nodejs_version
+  # manually install npm v6 until we can use Node > 10.3 on Windows
+  - npm install -g npm@6
   # Output useful info for debugging.
   # npm should be > v6 (for "npm ci" command and good package lock handling)
   - node --version
