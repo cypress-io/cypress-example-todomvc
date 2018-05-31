@@ -1,5 +1,7 @@
 machine:
   node:
+    # using Node > v10.3 becomes it comes with npm@6
+    # which has "npm ci" command and solid package-lock.json handling
     version: 10.3
 
 dependencies:
