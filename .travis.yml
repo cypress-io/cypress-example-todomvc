@@ -5,17 +5,18 @@
 language: node_js
 
 node_js:
-  - 6
+  - 10
 
-## Cache folders with installed NPM modules
+## Cache NPM folder and Cypress binary
 ## to avoid downloading Cypress again and again
 cache:
   directories:
     - ~/.npm
-    - node_modules
+    - ~/.cache
 
 install:
-  - npm install
+  # use the new "ci" command for fastest installs on CI
+  - npm ci
 
 before_script:
   ## runs the 'start' script which

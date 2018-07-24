@@ -1,40 +1,71 @@
-machine:
-  node:
-    version: 6
+# Check https://circleci.com/docs/2.0/ for more details
+# for config.yml syntax see https://circleci.com/docs/2.0/configuration-reference/
+version: 2
+jobs:
+  test:
+    docker:
+      # find Docker image at https://github.com/cypress-io/cypress-docker-images
+      - image: cypress/base:10
 
-dependencies:
-  cache_directories:
-    - ~/.npm
-    - node_modules
-  pre:
-    - npm install
+    working_directory: ~/repo
 
-test:
-  pre:
-    ## lint our code
-    - npm run lint
+    steps:
+      - checkout
 
-    ## runs the 'start' script which
-    ## boots our local app server on port 8080
-    ## which cypress expects to be running
-    - npm start:
-        background: true
-  override:
-    ## now run cypress headlessly
-    ## and record all of the tests.
-    ## Cypress will search for a
-    ## CYPRESS_RECORD_KEY environment
-    ## variable by default and apply
-    ## this to the run.
-    - npm run cypress:run -- --record
+      # Download and cache dependencies for the app and for tests
+      - restore_cache:
+          keys:
+          - dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - dependencies-
 
-    ## alternatively we could specify
-    ## a specific record key to use
-    ## like this without having to
-    ## configure environment variables
-    ## - npm run cypress:run -- --record --key <your_record_key>
+      # Install NPM dependencies quickly using "npm ci"
+      # https://on.cypress.io/continuous-integration
+      # https://docs.npmjs.com/cli/ci
+      - run:
+          name: Install dependencies
+          command: npm ci
 
-    ## you can also start the server and
-    ## run e2e tests and shut down server with
-    ## a single command
-    ## - npm run test:ci
+      - save_cache:
+          paths:
+            # all NPM modules
+            - ~/.npm
+            # Cypress binary (or yarn dependencies)
+            - ~/.cache
+          key: dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Lint code
+          command: npm run lint
+
+      - run:
+          name: Start server
+          command: npm start
+          background: true
+
+      ## now run cypress headlessly
+      ## and record all of the tests.
+      ## Cypress will search for a
+      ## CYPRESS_RECORD_KEY environment
+      ## variable by default and apply
+      ## this to the run.
+      - run:
+          name: Run Cypress tests
+          command: npm run cypress:run -- --record
+
+      ## alternatively we could specify
+      ## a specific record key to use
+      ## like this without having to
+      ## configure environment variables
+      ## - npm run cypress:run -- --record --key <your_record_key>
+
+      ## you can also start the server and
+      ## run e2e tests and shut down server with
+      ## a single command
+      ## - npm run test:ci
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - test

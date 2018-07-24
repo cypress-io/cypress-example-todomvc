@@ -18,14 +18,14 @@
     "lint": "eslint --fix cypress/*/*.js"
   },
   "dependencies": {
-    "director": "^1.2.0",
     "http-server": "0.11.1",
-    "react": "^0.13.3",
+    "director": "1.2.8",
+    "react": "0.13.3",
     "todomvc-app-css": "2.0.6",
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
-    "cypress": "2.1.0",
+    "cypress": "3.0.2",
     "eslint": "4.19.1",
     "eslint-plugin-cypress-dev": "1.1.2",
     "eslint-plugin-mocha": "4.12.1",
