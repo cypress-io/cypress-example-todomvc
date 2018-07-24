@@ -1,6 +1,5 @@
-# TodoMVC [![Travis CI](https://travis-ci.org/cypress-io/cypress-example-todomvc.svg)](https://travis-ci.org/cypress-io/cypress-example-todomvc) [![Circle CI](https://circleci.com/gh/cypress-io/cypress-example-todomvc.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-todomvc) [![Build status](https://ci.appveyor.com/api/projects/status/6wjyoye82orkkyny?svg=true)](https://ci.appveyor.com/project/cypress-io/cypress-example-todomvc)
+# TodoMVC [![Travis CI](https://travis-ci.org/cypress-io/cypress-example-todomvc.svg)](https://travis-ci.org/cypress-io/cypress-example-todomvc) [![Circle CI](https://circleci.com/gh/cypress-io/cypress-example-todomvc.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-todomvc) [![Build status](https://ci.appveyor.com/api/projects/status/6wjyoye82orkkyny?svg=true)](https://ci.appveyor.com/project/cypress-io/cypress-example-todomvc) [![renovate-app badge][renovate-badge]][renovate-app]
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/cypress-io/cypress-example-todomvc.svg)](https://greenkeeper.io/)
 
 This repo contains an example React App, with the tests written in Cypress.
 
@@ -74,3 +73,6 @@ commands.
 
 If you find errors in the type documentation, please
 [open an issue](https://github.com/cypress-io/cypress/issues)
+
+[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
+[renovate-app]: https://renovateapp.com/
