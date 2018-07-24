@@ -1,24 +1,32 @@
 # https://www.appveyor.com/docs/lang/nodejs-iojs/
 # Test against the latest version of this Node.js version
 environment:
-  nodejs_version: "6"
+  nodejs_version: "10"
 
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node $env:nodejs_version
-  # NPM v3 has flaky permission issues on Windows
-  - npm install -g npm@5
+  # manually install npm v6 until we can use Node > 10.3 on Windows
+  - npm install -g npm@6
   # Output useful info for debugging.
+  # npm should be > v6 (for "npm ci" command and good package lock handling)
   - node --version
   - npm --version
-  - npm install
+  - npm ci
+
+cache:
+  # cache NPM packages and Cypress binary (in .cache)
+  - '%USERPROFILE%\.npm'
+  - '%USERPROFILE%\.cache'
 
 # Post-install test scripts.
 test_script:
   - .\node_modules\.bin\cypress version
   - .\node_modules\.bin\cypress verify
   - ps: $ServerProcess = Start-Process npm start -PassThru
-  - npm run cypress:run -- --record
+  # disable recording, getting EPIPE socket error
+  # - npm run cypress:run -- --record
+  - npm run cypress:run
 
 on_finish:
   - ps: Stop-Process -Id $ServerProcess.Id

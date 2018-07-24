@@ -1,13 +1,19 @@
 machine:
   node:
-    version: 6
+    # using Node > v10.3 becomes it comes with npm@6
+    # which has "npm ci" command and solid package-lock.json handling
+    version: 10.3
 
 dependencies:
   cache_directories:
     - ~/.npm
-    - node_modules
+    - ~/.cache
   pre:
-    - npm install
+    # let's see the versions of the tools we use
+    - node -v
+    - npm -v
+  override:
+    - npm ci
 
 test:
   pre:
