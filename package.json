@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "cypress": "3.1.0",
-    "eslint": "5.4.0",
+    "eslint": "5.6.0",
     "eslint-plugin-cypress-dev": "1.1.2",
     "eslint-plugin-mocha": "5.2.0",
     "npm-run-all": "4.1.3"
