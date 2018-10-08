@@ -85,6 +85,16 @@ describe('TodoMVC - React', function () {
       cy.get('.todo-list li').eq(1).find('label').should('contain', TODO_ITEM_TWO)
     })
 
+    it('adds items', function () {
+      // create several todos then check the number of items in the list
+      cy.get('.new-todo')
+      .type('todo A{enter}')
+      .type('todo B{enter}') // we can continue working with same element
+      .type('todo C{enter}') // and keep adding new items
+      .type('todo D{enter}')
+      cy.get('.todo-list li').should('have.length', 4)
+    })
+
     it('should clear text input field when an item is added', function () {
       cy.get('.new-todo').type(TODO_ITEM_ONE).type('{enter}')
       cy.get('.new-todo').should('have.text', '')
