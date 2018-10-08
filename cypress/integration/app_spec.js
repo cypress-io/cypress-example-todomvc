@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 // @ts-check
+import Convergence from '@bigtest/convergence';
 
 // ***********************************************
 // All of these tests are written to implement
@@ -428,6 +429,36 @@ describe('TodoMVC - React', function () {
         cy.contains('Active').click().should('have.class', 'selected')
         cy.contains('Completed').click().should('have.class', 'selected')
       })
+    })
+  })
+
+  context('Retries', function () {
+    it('retries inside .then', function () {
+      const promiseRetry = require('promise-retry')
+      const throwDice = () => Cypress._.random(1, 6, false)
+      const getDiceToBe4 = () => throwDice() === 4
+        ? Cypress.Promise.resolve(4) : Cypress.Promise.reject(new Error('no dice'))
+      const myLogic = () => promiseRetry((retry, number) => {
+        console.log('attempt: %d', number)
+        return getDiceToBe4()
+        .catch(retry)
+      }, { factor: 1, minTimeout: 100 })
+      cy.then(myLogic).should('equal', 4)
+    })
+
+    it('converges inside .then', function () {
+      const throwDice = () => {
+        const n = Cypress._.random(1, 6, false)
+        console.log('%d', n)
+        return n
+      }
+      const myLogic = () => {
+        return new Convergence()
+        .when(() => throwDice() === 4)
+        .run()
+        .then(() => 4)
+      }
+      cy.then(myLogic).should('equal', 4)
     })
   })
 })
