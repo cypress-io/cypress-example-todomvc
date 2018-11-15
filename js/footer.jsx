@@ -35,6 +35,7 @@ var app = app || {};
 						<li>
 							<a
 								href="#/"
+								data-cy="show-all"
 								className={cx({selected: nowShowing === app.ALL_TODOS})}>
 									All
 							</a>
@@ -43,6 +44,7 @@ var app = app || {};
 						<li>
 							<a
 								href="#/active"
+								data-cy="show-active"
 								className={cx({selected: nowShowing === app.ACTIVE_TODOS})}>
 									Active
 							</a>
@@ -51,6 +53,7 @@ var app = app || {};
 						<li>
 							<a
 								href="#/completed"
+								data-cy="show-completed"
 								className={cx({selected: nowShowing === app.COMPLETED_TODOS})}>
 									Completed
 							</a>

@@ -17,8 +17,7 @@
 // https://github.com/fczbkk/css-selector-generator-benchmark
 const finder = require('@medv/finder').default
 
-beforeEach(() => {
-  cy.visit('/')
+before(() => {
   window.testedSelectors = []
 })
 
@@ -42,10 +41,16 @@ after(() => {
   })
 })
 
-const getSelector = ($el) =>
-  finder($el[0], {
+const getSelector = ($el) => {
+  if ($el.attr('data-cy')) {
+    return `[data-cy=${$el.attr('data-cy')}]`
+  }
+
+  return finder($el[0], {
+    // a trick to point "finder" at the application's iframe
     root: cy.state('window').document.body,
   })
+}
 
 Cypress.Commands.overwrite('type', function (type, $el, text, options) {
   const selector = getSelector($el)
