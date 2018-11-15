@@ -11,6 +11,66 @@
 // https://on.cypress.io/commands
 // ***********************************************
 
+/* eslint-env browser */
+
+// libraries that compute selectors compared in
+// https://github.com/fczbkk/css-selector-generator-benchmark
+const finder = require('@medv/finder').default
+
+beforeEach(() => {
+  cy.visit('/')
+  window.testedSelectors = []
+})
+
+after(() => {
+  const selectors = Cypress._.uniq(window.testedSelectors)
+
+  // eslint-disable-next-line no-console
+  console.log('tested the following selectors:', selectors)
+
+  // shortcut to get application's window context
+  // without going through cy.window() command
+  const win = cy.state('window')
+
+  selectors.forEach((selector) => {
+    const el = win.document.querySelector(selector)
+
+    if (el) {
+      el.style.opacity = 1
+      el.style.border = '1px solid magenta'
+    }
+  })
+})
+
+const getSelector = ($el) =>
+  finder($el[0], {
+    root: cy.state('window').document.body,
+  })
+
+Cypress.Commands.overwrite('type', function (type, $el, text, options) {
+  const selector = getSelector($el)
+
+  window.testedSelectors.push(selector)
+
+  return type($el, text, options)
+})
+
+Cypress.Commands.overwrite('check', function (check, $el, options) {
+  const selector = getSelector($el)
+
+  window.testedSelectors.push(selector)
+
+  return check($el, options)
+})
+
+Cypress.Commands.overwrite('click', function (click, $el, options) {
+  const selector = getSelector($el)
+
+  window.testedSelectors.push(selector)
+
+  return click($el, options)
+})
+
 Cypress.Commands.add('createDefaultTodos', function () {
 
   let TODO_ITEM_ONE = 'buy some cheese'
