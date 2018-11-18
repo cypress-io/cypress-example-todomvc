@@ -39,6 +39,9 @@ after(() => {
       el.style.border = '1px solid magenta'
     }
   })
+
+  // add pause if recording a video
+  // cy.wait(1000, { log: false })
 })
 
 const getSelector = ($el) => {
