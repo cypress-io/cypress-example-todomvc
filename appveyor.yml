@@ -14,14 +14,14 @@ install:
   - npx cypress cache path
 
 cache:
-  # cache NPM packages and Cypress binary (in .cache)
+  # cache NPM packages and Cypress binary
   - '%AppData%\npm'
   - '%USERPROFILE%\AppData\Local\Cypress\Cache'
 
 # Post-install test scripts.
 test_script:
-  - .\node_modules\.bin\cypress version
-  - .\node_modules\.bin\cypress verify
+  - npx cypress version
+  - npx cypress verify
   - ps: $ServerProcess = Start-Process npm start -PassThru
   - npm run cypress:run -- --record
 
