@@ -13,6 +13,7 @@ install:
   - node --version
   - npm --version
   - npm ci
+  - npx cypress cache path
 
 cache:
   # cache NPM packages and Cypress binary (in .cache)
