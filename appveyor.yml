@@ -17,7 +17,7 @@ install:
 
 cache:
   # cache NPM packages and Cypress binary (in .cache)
-  - '%USERPROFILE%\.npm'
+  - '%AppData%\npm'
   - '%USERPROFILE%\.cache'
 
 # Post-install test scripts.
