@@ -6,24 +6,17 @@ environment:
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node $env:nodejs_version
-  # manually install npm v6 until we can use Node > 10.3 on Windows
-  - npm install -g npm@6
   # Output useful info for debugging.
   # npm should be > v6 (for "npm ci" command and good package lock handling)
   - node --version
   - npm --version
-  # prints all environment variables that start with App
-  - set App
-  - set U
-  - set H
-  - set C
   - npm ci
   - npx cypress cache path
 
 cache:
   # cache NPM packages and Cypress binary (in .cache)
   - '%AppData%\npm'
-  - '%USERPROFILE%\.cache'
+  - '%USERPROFILE%\AppData\Local\Cypress\Cache'
 
 # Post-install test scripts.
 test_script:
