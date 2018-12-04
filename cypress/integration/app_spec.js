@@ -38,6 +38,14 @@ describe('TodoMVC - React', function () {
     cy.visit('/')
   })
 
+  // a very simple example helpful during presentations
+  it('adds 2 todos', function () {
+    cy.get('.new-todo')
+    .type('learn testing{enter}')
+    .type('be cool{enter}')
+    cy.get('.todo-list li').should('have.length', 2)
+  })
+
   context('When page is initially opened', function () {
     it('should focus on the todo input field', function () {
       // get the currently focused element and assert
