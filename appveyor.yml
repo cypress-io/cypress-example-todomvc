@@ -16,6 +16,7 @@ install:
   - set App
   - set U
   - set H
+  - set C
   - npm ci
   - npx cypress cache path
 
