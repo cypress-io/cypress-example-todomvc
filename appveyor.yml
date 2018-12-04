@@ -24,6 +24,8 @@ cache:
 test_script:
   - .\node_modules\.bin\cypress version
   - .\node_modules\.bin\cypress verify
+  # prints all environment variables that start with App
+  - set App
   - ps: $ServerProcess = Start-Process npm start -PassThru
   - npm run cypress:run -- --record
 
