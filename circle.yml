@@ -4,9 +4,21 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.2.0
+
+jobs:
+  # mac os x build
+  test-on-mac:
+    macos:
+      xcode: "9.0"
+    steps:
+      - checkout
+      - run: whoami
+      - run: pwd
+
 workflows:
   build:
     jobs:
       - cypress/run:
           record: true
           start: npm start
+      - test-on-mac
