@@ -16,6 +16,8 @@ jobs:
       - run: whoami # should be "distiller"
       - run: pwd
       - run: echo $HOME
+      - run: node -v
+      - run: npm -v
       # start building
       # restore folders with npm dependencies and Cypress binary
       - restore_cache:
@@ -26,7 +28,7 @@ jobs:
       - run:
           name: Install dependencies
           command: npm ci
-      - run: npm run cy:verify
+      - run: npm run cypress:verify
       # save npm dependencies and Cypress binary for future runs
       - save_cache:
           key: cache-{{ checksum "package.json" }}
@@ -37,7 +39,7 @@ jobs:
       - run:
           command: npm start
           background: true
-      - run: npm run e2e:record
+      - run: npm run cypress:run:record
 
 workflows:
   build:
