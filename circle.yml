@@ -6,14 +6,38 @@ orbs:
   cypress: cypress-io/cypress@1.2.0
 
 jobs:
-  # mac os x build
+  # mac os x build. It would be nice to be able to use Cypress orb for this
+  # https://circleci.com/docs/2.0/testing-ios/
   test-on-mac:
     macos:
-      xcode: "9.0"
+      xcode: "10.1.0"
     steps:
       - checkout
-      - run: whoami
+      - run: whoami # should be "distiller"
       - run: pwd
+      - run: echo $HOME
+      # start building
+      # restore folders with npm dependencies and Cypress binary
+      - restore_cache:
+          keys:
+            - cache-{{ checksum "package.json" }}
+      # install npm dependencies and Cypress binary
+      # if they were cached, this step is super quick
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run: npm run cy:verify
+      # save npm dependencies and Cypress binary for future runs
+      - save_cache:
+          key: cache-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      # start server before starting tests
+      - run:
+          command: npm start
+          background: true
+      - run: npm run e2e:record
 
 workflows:
   build:
