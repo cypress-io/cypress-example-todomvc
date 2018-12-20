@@ -3,7 +3,7 @@
 
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.2.0
+  cypress: cypress-io/cypress@1.3.0
 
 executors:
   mac:
