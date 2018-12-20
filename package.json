@@ -15,7 +15,8 @@
     "test:ci:record": "run-p --race start:ci cypress:run:record",
     "test:ci:chrome": "run-p --race start:ci cypress:run:chrome",
     "test:ci:headed": "run-p --race start:ci cypress:run:headed",
-    "lint": "eslint --fix cypress/*/*.js"
+    "lint": "eslint --fix cypress/*/*.js",
+    "effective:circle:config": "circleci config process circle.yml | sed /^#/d"
   },
   "dependencies": {
     "http-server": "0.11.1",
