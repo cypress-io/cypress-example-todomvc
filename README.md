@@ -72,6 +72,25 @@ commands.
 
 ![cy.type IntelliSense](img/cytype.png)
 
+This project also adds a custom command in [cypress/support/commands.js](cypress/support/commands.js).
+
+```js
+it('should append new items to the bottom of the list', function () {
+  cy.createDefaultTodos().as('todos')
+  // more test commands
+})
+```
+
+To let TypeScript compiler know that we have added a custom command and have IntelliSense working, I have described the type signature of the custom command in file [cypress/support/index.d.ts](cypress/support/index.d.ts). I could update `tsconfig.json` or I could include Cypress types and additional custom commands types from JavaScript spec files using `/// <reference types="...>` special comments.
+
+```js
+// type definitions for Cypress object "cy"
+/// <reference types="cypress" />
+
+// type definitions for custom commands like "createDefaultTodos"
+/// <reference types="../support" />
+```
+
 If you find errors in the type documentation, please
 [open an issue](https://github.com/cypress-io/cypress/issues)
 

@@ -1,4 +1,10 @@
+// type definitions for Cypress object "cy"
 /// <reference types="cypress" />
+
+// type definitions for custom commands like "createDefaultTodos"
+/// <reference types="../support" />
+
+// check this file using TypeScript if available
 // @ts-check
 
 // ***********************************************
@@ -110,9 +116,7 @@ describe('TodoMVC - React', function () {
 
     it('should append new items to the bottom of the list', function () {
       // this is an example of a custom command
-      // which is stored in tests/_support/spec_helper.js
-      // you should open up the spec_helper and look at
-      // the comments!
+      // defined in cypress/support/commands.js
       cy.createDefaultTodos().as('todos')
 
       // even though the text content is split across
