@@ -1,5 +1,8 @@
 {
   "private": true,
+  "name": "cypress-example-todomvc",
+  "version": "0.0.0-development",
+  "description": "This repo contains an example React App, with the tests written in Cypress",
   "scripts": {
     "cypress:version": "cypress version",
     "cypress:verify": "cypress verify",
