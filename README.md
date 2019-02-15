@@ -72,7 +72,9 @@ commands.
 
 ![cy.type IntelliSense](img/cytype.png)
 
-This project also adds a custom command in [cypress/support/commands.js](cypress/support/commands.js).
+### Custom commands
+
+This project also adds several custom commands in [cypress/support/commands.js](cypress/support/commands.js). They are useful to create one or more default todos from the tests.
 
 ```js
 it('should append new items to the bottom of the list', function () {
@@ -81,18 +83,46 @@ it('should append new items to the bottom of the list', function () {
 })
 ```
 
-To let TypeScript compiler know that we have added a custom command and have IntelliSense working, I have described the type signature of the custom command in file [cypress/support/index.d.ts](cypress/support/index.d.ts). I could update `tsconfig.json` or I could include Cypress types and additional custom commands types from JavaScript spec files using `/// <reference types="...>` special comments.
+To let TypeScript compiler know that we have added a custom command and have IntelliSense working, I have described the type signature of the custom command in file [cypress/support/index.d.ts](cypress/support/index.d.ts). Here is how this file looks; the type signatures should match the arguments custom commands expect.
+
+```typescript
+/// <reference types="cypress" />
+
+declare namespace Cypress {
+  interface Chainable<Subject> {
+    /**
+     * Create several Todo items via UI
+     * @example
+     * cy.createDefaultTodos()
+     */
+    createDefaultTodos(): Chainable<any>
+    /**
+     * Creates one Todo using UI
+     * @example
+     * cy.createTodo('new item')
+     */
+    createTodo(title: string): Chainable<any>
+  }
+}
+```
+
+To include the new ".d.ts" file into IntelliSense, I could update `tsconfig.json` or I could add another special comment to the JavaScript spec files - `/// <reference types="...>`.
 
 ```js
 // type definitions for Cypress object "cy"
 /// <reference types="cypress" />
 
 // type definitions for custom commands like "createDefaultTodos"
+// will resolve to "cypress/support/index.d.ts"
 /// <reference types="../support" />
 ```
 
+## Support
+
 If you find errors in the type documentation, please
 [open an issue](https://github.com/cypress-io/cypress/issues)
+
+You can also ask questions in our [chat channel](https://on.cypress.io/chat)
 
 [renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
 [renovate-app]: https://renovateapp.com/
