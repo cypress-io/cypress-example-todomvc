@@ -19,6 +19,9 @@ jobs:
           at: ~/
       - run: npm run types
       - run: npm run lint
+  circleCiTest:
+    - run:
+        curl -X POST --header "Content-Type: application/json" -d '{"branch":"master"}' https://circleci.com/api/v1.1/project/github/alffrey/dmp-cypress-e2e/build?circle-token=2ab815f3fb0bd85697ffc9dde564cbf980b9b484
 
 workflows:
   build:
@@ -33,5 +36,7 @@ workflows:
       - lint:
           requires:
             - Linux test
-      - run:
-          curl -X POST --header "Content-Type: application/json" -d '{"branch":"master"}' https://circleci.com/api/v1.1/project/github/alffrey/dmp-cypress-e2e/build?circle-token=2ab815f3fb0bd85697ffc9dde564cbf980b9b484
+      - circleCiTest:
+          requires:
+            - Linux test
+          
