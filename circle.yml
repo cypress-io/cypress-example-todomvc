@@ -7,9 +7,6 @@ orbs:
   cypress: cypress-io/cypress@1.5.1
 
 executors:
-  mac:
-    macos:
-      xcode: "10.1.0"
   linux:
     machine:
       enabled: true
@@ -25,7 +22,7 @@ jobs:
   circleCiTest:
     executor: linux
     steps:
-      - run: 'curl -X POST --header "Content-Type: application/json" -d {"branch":"master"} https://circleci.com/api/v1.1/project/github/alffrey/dmp-cypress-e2e/build?circle-token=2ab815f3fb0bd85697ffc9dde564cbf980b9b484'
+      - run: 'curl -X POST --header "Content-Type: application/json" -d "{'branch':'master'}" https://circleci.com/api/v1.1/project/github/alffrey/dmp-cypress-e2e/build?circle-token=2ab815f3fb0bd85697ffc9dde564cbf980b9b484'
 
 workflows:
   build:
@@ -33,13 +30,6 @@ workflows:
       - cypress/run:
           name: Linux test
           start: npm start
-      - cypress/run:
-          name: Mac test
-          executor: mac
-          start: npm start
-      - lint:
-          requires:
-            - Linux test
       - circleCiTest:
           requires:
             - Linux test
