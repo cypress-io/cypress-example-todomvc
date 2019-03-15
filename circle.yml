@@ -11,7 +11,8 @@ executors:
     macos:
       xcode: "10.1.0"
   linux:
-    machine: true
+    machine:
+      enabled: true
 
 jobs:
   lint:
