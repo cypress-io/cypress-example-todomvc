@@ -117,6 +117,8 @@ To include the new ".d.ts" file into IntelliSense, I could update `tsconfig.json
 /// <reference types="../support" />
 ```
 
+**Related:** [IntelliSense for custom Chai assertions added to Cypress](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/extending-cypress__chai-assertions#code-completion)
+
 ## Support
 
 If you find errors in the type documentation, please
