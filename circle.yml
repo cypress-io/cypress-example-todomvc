@@ -6,6 +6,9 @@ orbs:
   cypress: cypress-io/cypress@1.5.1
 
 executors:
+  node8.15.1:
+    docker:
+      - image: cypress/base:8.15.1
   mac:
     macos:
       xcode: "10.1.0"
@@ -23,6 +26,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          executor: node8.15.1
           name: Linux test
           record: true
           start: npm start
