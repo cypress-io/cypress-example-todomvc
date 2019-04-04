@@ -6,7 +6,7 @@ orbs:
   cypress: cypress-io/cypress@1.5.1
 
 executors:
-  node8.15.1:
+  node8-lts:
     docker:
       - image: cypress/base:8.15.1
   mac:
@@ -26,7 +26,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          executor: node8.15.1
+          executor: node8-lts
           name: Linux test
           record: true
           start: npm start
