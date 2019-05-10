@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+/* eslint-disable no-console */
+/* global console */
+
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your other test files.
@@ -82,15 +85,15 @@ Cypress.SelectorPlayground.defaults({
 
     if ($list.prop('class')) {
       const selector =
-        $list.prop('tagName') +
-        '.' +
-        $list.prop('class') +
-        ' > ' +
-        $parentLi.prop('tagName')
+        `${$list.prop('tagName')
+        }.${
+          $list.prop('class')
+        } > ${
+          $parentLi.prop('tagName')}`
 
       console.log('list item selector', selector)
 
       return selector
     }
-  }
+  },
 })
