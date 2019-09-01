@@ -7,6 +7,12 @@ language: node_js
 node_js:
   - 10
 
+addons:
+  apt:
+    packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+      - libgconf-2-4
+
 ## Cache NPM folder and Cypress binary
 ## to avoid downloading Cypress again and again
 cache:
