@@ -49,6 +49,7 @@ describe('TodoMVC - React', function () {
     cy.get('.new-todo')
     .type('learn testing{enter}')
     .type('be cool{enter}')
+
     cy.get('.todo-list li').should('have.length', 2)
   })
 
@@ -106,6 +107,7 @@ describe('TodoMVC - React', function () {
       .type('todo B{enter}') // we can continue working with same element
       .type('todo C{enter}') // and keep adding new items
       .type('todo D{enter}')
+
       cy.get('.todo-list li').should('have.length', 4)
     })
 
@@ -440,6 +442,14 @@ describe('TodoMVC - React', function () {
         cy.contains('Active').click().should('have.class', 'selected')
         cy.contains('Completed').click().should('have.class', 'selected')
       })
+    })
+  })
+
+  it('has good contrast', () => {
+    cy.visit('/')
+    cy.injectAxe()
+    cy.checkA11y({
+      runOnly: ['cat.color'],
     })
   })
 })
