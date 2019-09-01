@@ -445,9 +445,20 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  it('has good contrast', () => {
-    cy.visit('/')
+  it('has good contrast when empty', () => {
     cy.injectAxe()
+    cy.checkA11y({
+      runOnly: ['cat.color'],
+    })
+  })
+
+  it.only('has good contrast', () => {
+    cy.injectAxe()
+    cy.get('.new-todo')
+    .type('learn testing{enter}')
+    .type('be cool{enter}')
+
+    cy.get('.todo-list li').should('have.length', 2)
     cy.checkA11y({
       runOnly: ['cat.color'],
     })
