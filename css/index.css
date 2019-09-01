@@ -52,19 +52,19 @@ body {
 .todoapp input::-webkit-input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #111111;
 }
 
 .todoapp input::-moz-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #111111;
 }
 
 .todoapp input::input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #111111;
 }
 
 .todoapp h1 {
@@ -214,6 +214,7 @@ body {
 	display: block;
 	line-height: 1.2;
 	transition: color 0.4s;
+	font-weight: bolder;
 }
 
 .todo-list li.completed label {
@@ -257,7 +258,8 @@ body {
 }
 
 .footer {
-	color: #777;
+	/* color: #777; */
+	font-size: large;
 	padding: 10px 15px;
 	height: 20px;
 	text-align: center;

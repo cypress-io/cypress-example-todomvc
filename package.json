@@ -19,7 +19,7 @@
     "test:ci:record": "run-p --race start:ci cypress:run:record",
     "test:ci:chrome": "run-p --race start:ci cypress:run:chrome",
     "test:ci:headed": "run-p --race start:ci cypress:run:headed",
-    "lint": "eslint --fix cypress/*/*.js",
+    "lint": "eslint --fix cypress/integration/*.js cypress/support/*.js cypress/plugins/*.js",
     "effective:circle:config": "circleci config process circle.yml | sed /^#/d",
     "types": "tsc --noEmit"
   },
