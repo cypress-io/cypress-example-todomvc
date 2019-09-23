@@ -24,10 +24,10 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "http-server": "0.11.1",
     "director": "1.2.8",
+    "http-server": "0.11.1",
     "react": "0.13.3",
-    "todomvc-app-css": "2.2.0",
+    "todomvc-app-css": "github:cypress-io/todomvc-app-css#a9d4ea1",
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
