@@ -20,6 +20,6 @@ before_script:
   - npm start -- --silent &
 
 script:
-  - npm run cypress:run --record --group foo --ci-build-id foo123
-  - npm run cypress:run --record --group bar --ci-build-id foo123
-  - npm run cypress:run --record --group baz --ci-build-id foo123
+  - npm run cypress:run -- --record --group foo --ci-build-id foo123
+  - npm run cypress:run -- --record --group bar --ci-build-id foo123
+  - npm run cypress:run -- --record --group baz --ci-build-id foo123
