@@ -1,3 +1,4 @@
+
 language: node_js
 
 node_js:
@@ -19,15 +20,7 @@ install:
 before_script:
   - npm start -- --silent &
 
-jobs:
-  include:
-    - stage: test
-      script:
-        - DEBUG=cypress:* npm run cypress:run -- --record --group foo --ci-build-id foo123
-    - stage: test
-      script:
-        - DEBUG=cypress:* npm run cypress:run -- --record --group bar --ci-build-id foo123
-    - stage: test
-      script:
-        - DEBUG=cypress:* npm run cypress:run -- --record --group baz --ci-build-id foo123
-
+script:
+  - npm run cypress:run -- --record --group foo --ci-build-id foo123
+  - npm run cypress:run -- --record --group bar --ci-build-id foo123
+  - npm run cypress:run -- --record --group baz --ci-build-id foo123
