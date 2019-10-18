@@ -19,7 +19,7 @@
     "test:ci:record": "run-p --race start:ci cypress:run:record",
     "test:ci:chrome": "run-p --race start:ci cypress:run:chrome",
     "test:ci:headed": "run-p --race start:ci cypress:run:headed",
-    "lint": "eslint --fix cypress/*/*.js",
+    "lint": "eslint --fix cypress/integration/*.js cypress/support/*.js cypress/plugins/*.js",
     "effective:circle:config": "circleci config process circle.yml | sed /^#/d",
     "types": "tsc --noEmit"
   },
@@ -27,11 +27,13 @@
     "director": "1.2.8",
     "http-server": "0.11.1",
     "react": "0.13.3",
-    "todomvc-app-css": "github:cypress-io/todomvc-app-css#a9d4ea1",
+    "todomvc-app-css": "2.3.0",
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
+    "axe-core": "3.3.2",
     "cypress": "3.4.1",
+    "cypress-axe": "0.5.1",
     "eslint": "6.0.1",
     "eslint-plugin-cypress-dev": "3.0.0",
     "eslint-plugin-mocha": "5.3.0",
