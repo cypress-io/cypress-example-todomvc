@@ -21,7 +21,8 @@
     "test:ci:headed": "run-p --race start:ci cypress:run:headed",
     "lint": "eslint --fix cypress/integration/*.js cypress/support/*.js cypress/plugins/*.js",
     "effective:circle:config": "circleci config process circle.yml | sed /^#/d",
-    "types": "tsc --noEmit"
+    "types": "tsc --noEmit",
+    "e2e": "cypress run"
   },
   "dependencies": {
     "director": "1.2.8",
