@@ -6,16 +6,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-
-      - name: Install dependencies
-        uses: cypress-io/github-action@v1
-        with:
-          runTests: false
-
-      - name: Run server
-        run: npx http-server -p 8888 -c-1 &
-
       - name: Run E2E tests
         uses: cypress-io/github-action@v1
         with:
-          install: false
+          start: "npm run start:ci"
+          wait-on: "http://localhost:8888"
