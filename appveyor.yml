@@ -27,6 +27,8 @@ test_script:
   # check that we can pass urls to the test runner
   # https://github.com/cypress-io/cypress/issues/5466
   - npm run cypress:run -- --config baseUrl=http://localhost:8888
+  # also try passing url in the env variable
+  - npx cypress run --env someApiUrl=http://localhost:5000
 
 on_finish:
   - ps: Stop-Process -Id $ServerProcess.Id
