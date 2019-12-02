@@ -1,0 +1,21 @@
+name: End-to-end tests
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        uses: cypress-io/github-action@v1
+        with:
+          runTests: false
+
+      - name: Run server
+        run: npx http-server -p 8888 -c-1
+
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v1
+        with:
+          install: false
