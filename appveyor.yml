@@ -24,6 +24,9 @@ test_script:
   - npx cypress verify
   - ps: $ServerProcess = Start-Process npm start -PassThru
   - npm run cypress:run -- --record
+  # check that we can pass urls to the test runner
+  # https://github.com/cypress-io/cypress/issues/5466
+  - npm run cypress:run -- --config baseUrl=http://localhost:8888
 
 on_finish:
   - ps: Stop-Process -Id $ServerProcess.Id
