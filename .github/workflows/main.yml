@@ -13,7 +13,7 @@ jobs:
           runTests: false
 
       - name: Run server
-        run: npx http-server -p 8888 -c-1
+        run: npx http-server -p 8888 -c-1 &
 
       - name: Run E2E tests
         uses: cypress-io/github-action@v1
