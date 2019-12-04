@@ -43,6 +43,12 @@ describe('TodoMVC - React', function () {
     cy.visit('/')
   })
 
+  afterEach(() => {
+    cy.window().then((win) => {
+      win.document.activeElement.blur()
+    })
+  })
+
   // a very simple example helpful during presentations
   it('adds 2 todos', function () {
     cy.get('.new-todo')
