@@ -44,6 +44,9 @@ describe('TodoMVC - React', function () {
   })
 
   afterEach(() => {
+    // In firefox, blur handlers will fire upon navigation if there is an activeElement.
+    // Since todos are updated on blur after editing,
+    // this is needed to blur activeElement after each test to prevent state leakage between tests.
     cy.window().then((win) => {
       win.document.activeElement.blur()
     })
