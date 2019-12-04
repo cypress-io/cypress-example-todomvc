@@ -48,6 +48,7 @@ describe('TodoMVC - React', function () {
     // Since todos are updated on blur after editing,
     // this is needed to blur activeElement after each test to prevent state leakage between tests.
     cy.window().then((win) => {
+      // @ts-ignore
       win.document.activeElement.blur()
     })
   })
