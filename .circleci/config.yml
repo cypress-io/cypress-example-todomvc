@@ -1,0 +1,40 @@
+# run Cypress tests using CircleCI Cypress orb
+# https://github.com/cypress-io/circleci-orb
+
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.5.1
+
+executors:
+  node8-lts:
+    docker:
+      - image: cypress/base:8.15.1
+  mac:
+    macos:
+      xcode: "10.1.0"
+
+jobs:
+  lint:
+    executor: cypress/base-10
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npm run types
+      - run: npm run lint
+
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          executor: node8-lts
+          name: Linux test
+          record: true
+          start: npm start
+      - cypress/run:
+          name: Mac test
+          executor: mac
+          record: true
+          start: npm start
+      - lint:
+          requires:
+            - Linux test
