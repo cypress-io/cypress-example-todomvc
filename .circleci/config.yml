@@ -28,7 +28,7 @@ workflows:
       - cypress/run:
           executor: node8-lts
           name: Linux test
-          record: true
+          record: false
           start: npm start
       #- cypress/run:
        #   name: Mac test
