@@ -9,9 +9,9 @@ executors:
   node8-lts:
     docker:
       - image: cypress/base:8.15.1
-  mac:
-    macos:
-      xcode: "10.1.0"
+  #mac:
+   # macos:
+    #  xcode: "10.1.0"
 
 jobs:
   lint:
