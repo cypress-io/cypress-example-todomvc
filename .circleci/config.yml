@@ -30,11 +30,11 @@ workflows:
           name: Linux test
           record: true
           start: npm start
-      - cypress/run:
-          name: Mac test
-          executor: mac
-          record: true
-          start: npm start
+      #- cypress/run:
+       #   name: Mac test
+        #  executor: mac
+         # record: true
+          #start: npm start
       - lint:
           requires:
             - Linux test
