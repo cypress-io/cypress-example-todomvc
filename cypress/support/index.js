@@ -22,3 +22,4 @@
 require('./commands')
 require('./defaults')
 require('cypress-axe')
+require("cypress-audit/commands")

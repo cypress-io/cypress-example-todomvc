@@ -651,7 +651,7 @@ describe('TodoMVC - React', function () {
       })
     })
 
-    it('has good contrast with several todos', () => {
+    it.only('has good contrast with several todos', () => {
       cy.injectAxe()
       cy.get('.new-todo')
       .type('learn testing{enter}')
@@ -675,6 +675,8 @@ describe('TodoMVC - React', function () {
       cy.checkA11y({
         runOnly: ['cat.color'],
       })
+
+      cy.audit({})
     })
   })
 })
