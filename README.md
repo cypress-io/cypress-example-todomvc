@@ -1,6 +1,3 @@
-# TodoMVC [![Travis Status](https://travis-ci.org/cypress-io/cypress-example-todomvc.svg?branch=master)](https://travis-ci.org/cypress-io/cypress-example-todomvc) [![Circle CI](https://circleci.com/gh/cypress-io/cypress-example-todomvc.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-todomvc) [![Build status](https://ci.appveyor.com/api/projects/status/6wjyoye82orkkyny/branch/master?svg=true)](https://ci.appveyor.com/project/cypress-io/cypress-example-todomvc/branch/master)
- [![renovate-app badge][renovate-badge]][renovate-app]
-
 
 This repo contains an example React App, with the tests written in Cypress.
 
