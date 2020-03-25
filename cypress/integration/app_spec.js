@@ -57,9 +57,14 @@ describe('TodoMVC - React', function() {
   it('adds 2 todos', function() {
     cy.get('.new-todo')
       .type('learn testing{enter}')
-      .type('be cool{enter}');
+      .type('be cool{enter}')
+      .happoScreenshot({ component: 'New todo' });
 
     cy.get('.todo-list li').should('have.length', 2);
+    cy.get('body').happoScreenshot({
+      component: 'App',
+      variant: 'two items added',
+    });
   });
 
   context('No Todos', function() {
@@ -70,6 +75,10 @@ describe('TodoMVC - React', function() {
       // so as to make our testing intentions as clear as possible.
       //
       // http://on.cypress.io/get
+      cy.get('body').happoScreenshot({
+        component: 'App',
+        variant: 'empty',
+      });
       cy.get('.todo-list li').should('not.exist');
       cy.get('.main').should('not.exist');
       cy.get('.footer').should('not.exist');
@@ -108,6 +117,11 @@ describe('TodoMVC - React', function() {
       cy.get('@todos')
         .eq(2)
         .should('have.class', 'completed');
+
+      cy.get('body').happoScreenshot({
+        component: 'App',
+        variant: 'all items completed',
+      });
     });
 
     it('should allow me to clear the complete state of all items', function() {
@@ -127,6 +141,11 @@ describe('TodoMVC - React', function() {
       cy.get('@todos')
         .eq(2)
         .should('not.have.class', 'completed');
+
+      cy.get('body').happoScreenshot({
+        component: 'App',
+        variant: 'all items uncompleted',
+      });
     });
   });
 
@@ -152,15 +171,24 @@ describe('TodoMVC - React', function() {
       cy.get('@secondTodo')
         .find('label')
         .should('not.be.visible');
+
+      cy.get('body').happoScreenshot({
+        component: 'App',
+        variant: 'editing item',
+      });
     });
   });
 
   context('Counter', function() {
     it('should display the current number of todo items', function() {
       cy.createTodo(TODO_ITEM_ONE);
-      cy.get('.todo-count').contains('1 item left');
+      cy.get('.todo-count')
+        .contains('1 item left')
+        .happoScreenshot({ component: 'Counter', variant: '1 item left' });
       cy.createTodo(TODO_ITEM_TWO);
-      cy.get('.todo-count').contains('2 items left');
+      cy.get('.todo-count')
+        .contains('2 items left')
+        .happoScreenshot({ component: 'Counter', variant: '2 items left' });
     });
   });
 });
