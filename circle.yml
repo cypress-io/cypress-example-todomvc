@@ -3,7 +3,10 @@
 
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.5.1
+  cypress: cypress-io/cypress@1
+  # for testing on Windows
+  # https://circleci.com/docs/2.0/hello-world-windows/
+  win: circleci/windows@1
 
 executors:
   node8-lts:
@@ -35,6 +38,17 @@ workflows:
           executor: mac
           record: true
           start: npm start
+          # no need to save the workspace after this job
+          no-workspace: true
       - lint:
           requires:
             - Linux test
+      - cypress/run:
+          name: Windows test
+          executor:
+            name: win/vs2019
+            shell: bash.exe
+          record: true
+          start: npm start
+          # no need to save the workspace after this job
+          no-workspace: true
