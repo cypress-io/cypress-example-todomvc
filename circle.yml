@@ -38,6 +38,8 @@ workflows:
           executor: mac
           record: true
           start: npm start
+          # no need to save the workspace after this job
+          no-workspace: true
       - lint:
           requires:
             - Linux test
@@ -48,3 +50,5 @@ workflows:
             shell: bash.exe
           record: true
           start: npm start
+          # no need to save the workspace after this job
+          no-workspace: true
