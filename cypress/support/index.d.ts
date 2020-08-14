@@ -16,13 +16,12 @@ declare namespace Cypress {
     createTodo(title: string): Chainable<any>
 
     /**
-     * Command from `cypress-axe` to inject Axe core library.
-     * @see https://github.com/avanslaars/cypress-axe
+     * Command that injects Axe core library into app html.
      * @example
      *  cy.visit('/')
-     *  cy.injectAxe()
+     *  cy.v()
      */
-    injectAxe(): Chainable<any>
+    addAxeCode(): Chainable<any>
 
     /**
      * Run a11y tests or only a subset of all tests
@@ -30,6 +29,6 @@ declare namespace Cypress {
      * @example
      *  cy.checkA11y()
      */
-    checkA11y(any): Chainable<any>
+    checkA11y(any, object): Chainable<any>
   }
 }
