@@ -645,20 +645,20 @@ describe('TodoMVC - React', function () {
 
   context('Contrast', () => {
     it('has good contrast when empty', () => {
-      cy.injectAxe()
-      cy.checkA11y({
+      cy.addAxeCode()
+      cy.checkA11y(null, {
         runOnly: ['cat.color'],
       })
     })
 
     it('has good contrast with several todos', () => {
-      cy.injectAxe()
+      cy.addAxeCode()
       cy.get('.new-todo')
       .type('learn testing{enter}')
       .type('be cool{enter}')
 
       cy.get('.todo-list li').should('have.length', 2)
-      cy.checkA11y({
+      cy.checkA11y(null, {
         runOnly: ['cat.color'],
       })
 
@@ -672,7 +672,7 @@ describe('TodoMVC - React', function () {
       .first()
       .should('have.class', 'completed')
 
-      cy.checkA11y({
+      cy.checkA11y(null, {
         runOnly: ['cat.color'],
       })
     })
