@@ -29,7 +29,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          executor: cypress/base:12
+          executor: node12-lts
           name: Linux test
           record: true
           start: npm start
