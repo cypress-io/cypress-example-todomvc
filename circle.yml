@@ -11,14 +11,14 @@ orbs:
 executors:
   node8-lts:
     docker:
-      - image: cypress/base:12
+      - image: cypress/base:8.15.1
   mac:
     macos:
       xcode: "10.1.0"
 
 jobs:
   lint:
-    executor: cypress/base:12
+    executor: cypress/base-10
     steps:
       - attach_workspace:
           at: ~/
@@ -29,7 +29,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          executor: cypress/base:12
+          executor: node8-lts
           name: Linux test
           record: true
           start: npm start
