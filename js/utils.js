@@ -1,7 +1,9 @@
 /* eslint-env browser */
-let app = app || {};
+window.app = window.app || {}
 
-(function () {
+const app = window.app
+
+;(function () {
   'use strict'
 
   app.Utils = {
