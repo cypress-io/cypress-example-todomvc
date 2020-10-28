@@ -1,6 +1,7 @@
-let app = app || {};
+/* eslint-disable-next-line no-var */
+var app = app || {}
 
-(function () {
+;(function () {
   'use strict'
 
   let Utils = app.Utils

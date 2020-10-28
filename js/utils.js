@@ -1,7 +1,8 @@
 /* eslint-env browser */
-let app = app || {};
+/* eslint-disable-next-line no-var */
+var app = app || {}
 
-(function () {
+;(function () {
   'use strict'
 
   app.Utils = {
