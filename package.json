@@ -27,7 +27,7 @@
   "dependencies": {
     "director": "1.2.8",
     "http-server": "0.12.3",
-    "react": "0.13.3",
+    "react": "0.14.0",
     "todomvc-app-css": "2.3.0",
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
