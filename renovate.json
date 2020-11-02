@@ -22,5 +22,25 @@
   "schedule": [
     "after 11pm and before 1am on every weekday",
     "every weekend"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "excludePackagePatterns": [
+        "cypress",
+        "director",
+        "http-server",
+        "todomvc-app-css",
+        "axe-core",
+        "cypress-axe",
+        "eslint",
+        "eslint-plugin-cypress-dev",
+        "eslint-plugin-mocha",
+        "typescript"
+      ],
+      "enabled": false
+    }
   ]
 }
