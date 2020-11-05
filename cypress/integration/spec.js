@@ -1,9 +1,10 @@
 /// <reference types="cypress" />
+import { getInputBox } from './test-utils'
 
 describe('TodoMVC', () => {
   it('adds todos', () => {
     cy.visit('/')
-    cy.get('.new-todo').type('write code{enter}').type('write tests{enter}')
+    getInputBox().type('write code{enter}').type('write tests{enter}')
     cy.get('.todo-list li')
     .should('have.length', 2)
     .first()
