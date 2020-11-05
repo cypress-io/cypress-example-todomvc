@@ -6,6 +6,8 @@ const app = window.app
 ;(function () {
   'use strict'
 
+  // a = b
+
   app.Utils = {
     uuid () {
       /*jshint bitwise:false */
