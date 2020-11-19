@@ -24,6 +24,9 @@ jobs:
       - run: npm run lint
       - echo "Hi Jira!"
       - jira/notify
+      # Upload test results
+      - store_test_results:
+          path: /tmp/test-reports      
 
 workflows:
   build:
