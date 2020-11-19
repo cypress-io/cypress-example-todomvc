@@ -10,9 +10,6 @@ executors:
   node8-lts:
     docker:
       - image: cypress/base:8.15.1
-  mac:
-    macos:
-      xcode: "10.1.0"
 
 jobs:
   lint:
@@ -24,9 +21,8 @@ jobs:
       - run: npm run lint
       - echo "Hi Jira!"
       - jira/notify
-      # Upload test results
       - store_test_results:
-          path: /tmp/test-reports      
+          path: /test-reports      
 
 workflows:
   build:
@@ -36,13 +32,10 @@ workflows:
           name: Linux test
           record: true
           start: npm start
-      - cypress/run:
-          name: Mac test
-          executor: mac
-          record: true
-          start: npm start
+          post-steps:
+            - jira/notify:
+                environment_type: development
+                job_type: build
       - lint:
           requires:
             - Linux test
-          post-steps:
-            - jira/notify
