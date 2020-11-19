@@ -4,7 +4,8 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.5.1
-
+  jira: circleci/jira@1.3.0
+  
 executors:
   node8-lts:
     docker:
@@ -21,6 +22,8 @@ jobs:
           at: ~/
       - run: npm run types
       - run: npm run lint
+      - echo "Hi Jira!"
+      - jira/notify
 
 workflows:
   build:
@@ -38,3 +41,5 @@ workflows:
       - lint:
           requires:
             - Linux test
+          post-steps:
+            - jira/notify
