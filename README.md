@@ -7,6 +7,8 @@ CircleCI Build and Testing Status:
 
 This repo contains an example React App, with the tests written in Cypress. The original project is part of the cypress.io sample set: https://github.com/cypress-io/cypress-example-todomvc
 
+Can also link this to Jira, for example SYSE-3
+
 ## Original content below --> 
 
 Additionally this example app is configured to run tests in Circle CI and Travis CI.
