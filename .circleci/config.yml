@@ -4,14 +4,12 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.5.1
-
+  jira: circleci/jira@1.3.0
+  
 executors:
   node8-lts:
     docker:
       - image: cypress/base:8.15.1
-  #mac:
-   # macos:
-    #  xcode: "10.1.0"
 
 jobs:
   lint:
@@ -21,6 +19,10 @@ jobs:
           at: ~/
       - run: npm run types
       - run: npm run lint
+      - echo "Hi Jira!"
+      - jira/notify
+      - store_test_results:
+          path: /test-reports      
 
 workflows:
   build:
@@ -28,13 +30,12 @@ workflows:
       - cypress/run:
           executor: node8-lts
           name: Linux test
-          record: false
+          record: true
           start: npm start
-      #- cypress/run:
-       #   name: Mac test
-        #  executor: mac
-         # record: true
-          #start: npm start
+          post-steps:
+            - jira/notify:
+                environment_type: development
+                job_type: build
       - lint:
           requires:
             - Linux test
