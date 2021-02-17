@@ -27,3 +27,6 @@ build/Release
 node_modules
 cypress/videos
 cypress/screenshots
+
+#locked package.json
+package-lock.json
