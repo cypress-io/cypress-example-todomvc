@@ -2,17 +2,9 @@
  [![renovate-app badge][renovate-badge]][renovate-app]
 
 
-This repo contains an example React App, with the tests written in Cypress.
+This repo contains an example React App. It's fork from [cypress-example-todomvc](https://github.com/cypress-io/cypress-example-todomvc), but without Cypress tests. They are planned to be added as part "from MQA to AQA" course.
 
 Additionally this example app is configured to run tests in Circle CI and Travis CI.
-
-The tests are written to be directly compared to the official TodoMVC tests.
-
-Each test covers the same functionality found in the official TodoMVC tests but utilizes the Cypress API.
-
-The [tests are heavily commented](cypress/integration/app_spec.js) to ease you into the Cypress API.
-
-[You can find the official TodoMVC tests we are comparing to here.](https://github.com/tastejs/todomvc/blob/master/tests/test.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/page.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/testOperations.js)
 
 ## Help + Testing
 
@@ -71,60 +63,3 @@ add `@ts-check` to the spec file and configure "dummy"
 commands.
 
 ![cy.type IntelliSense](img/cytype.png)
-
-### Custom commands
-
-This project also adds several custom commands in [cypress/support/commands.js](cypress/support/commands.js). They are useful to create one or more default todos from the tests.
-
-```js
-it('should append new items to the bottom of the list', function () {
-  cy.createDefaultTodos().as('todos')
-  // more test commands
-})
-```
-
-To let TypeScript compiler know that we have added a custom command and have IntelliSense working, I have described the type signature of the custom command in file [cypress/support/index.d.ts](cypress/support/index.d.ts). Here is how this file looks; the type signatures should match the arguments custom commands expect.
-
-```typescript
-/// <reference types="cypress" />
-
-declare namespace Cypress {
-  interface Chainable<Subject> {
-    /**
-     * Create several Todo items via UI
-     * @example
-     * cy.createDefaultTodos()
-     */
-    createDefaultTodos(): Chainable<any>
-    /**
-     * Creates one Todo using UI
-     * @example
-     * cy.createTodo('new item')
-     */
-    createTodo(title: string): Chainable<any>
-  }
-}
-```
-
-To include the new ".d.ts" file into IntelliSense, I could update `tsconfig.json` or I could add another special comment to the JavaScript spec files - `/// <reference types="...>`.
-
-```js
-// type definitions for Cypress object "cy"
-/// <reference types="cypress" />
-
-// type definitions for custom commands like "createDefaultTodos"
-// will resolve to "cypress/support/index.d.ts"
-/// <reference types="../support" />
-```
-
-**Related:** [IntelliSense for custom Chai assertions added to Cypress](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/extending-cypress__chai-assertions#code-completion)
-
-## Support
-
-If you find errors in the type documentation, please
-[open an issue](https://github.com/cypress-io/cypress/issues)
-
-You can also ask questions in our [chat channel](https://on.cypress.io/chat)
-
-[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
-[renovate-app]: https://renovateapp.com/
