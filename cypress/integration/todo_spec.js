@@ -80,12 +80,18 @@ describe('TodoMVC - React', () => {
     .should('contain.text', 'todos')
   })
 
-  it.only('verify Active items section', () => {
+  it('verify Active items section', () => {
     addTodoItemInLocalStorage()
     cy.get('a[href="#/active"').click()
+
+    todoItems().should('contain.text', 'My first todo')
   })
 
   it('verify Completed items section', () => {
+    addTodoItemInLocalStorage()
+    cy.get('.toggle').click()
+    cy.get('a[href="#/completed"').click()
 
+    todoItems().should('contain.text', 'My first todo')
   })
 })
