@@ -6,5 +6,8 @@
   "globals": {
     "cy": true,
     "Cypress": true
+  },
+  "env": {
+    "browser": true
   }
 }
