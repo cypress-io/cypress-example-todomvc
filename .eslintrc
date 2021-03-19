@@ -1,10 +1,14 @@
 {
   "extends": [
     "plugin:cypress-dev/general",
-    "plugin:cypress-dev/tests"
+    "plugin:cypress-dev/tests",
+    "plugin:cypress/recommended"
   ],
   "globals": {
     "cy": true,
     "Cypress": true
+  },
+  "env": {
+    "browser": true
   }
 }
