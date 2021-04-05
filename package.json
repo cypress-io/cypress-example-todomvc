@@ -25,6 +25,8 @@
     "e2e": "cypress run"
   },
   "dependencies": {
+    "cosmiconfig": "7.0.x",
+    "cypress-cucumber-preprocessor": "4.0.x",
     "director": "1.2.8",
     "http-server": "0.12.3",
     "react": "0.13.3",
@@ -33,12 +35,15 @@
   },
   "devDependencies": {
     "axe-core": "3.5.5",
-    "cypress": "6.x",
-    "cypress-axe": "0.9.1",
-    "eslint": "6.8.0",
-    "eslint-plugin-cypress-dev": "3.0.0",
-    "eslint-plugin-mocha": "5.3.0",
+    "cypress": "6.8.x",
+    "cypress-axe": "0.12.2",
+    "eslint": "7.23.x",
+    "eslint-plugin-cypress": "2.11.2",
+    "eslint-plugin-mocha": "8.1.x",
     "npm-run-all": "4.1.5",
     "typescript": "3.9.7"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }

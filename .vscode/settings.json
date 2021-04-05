@@ -1,4 +1,10 @@
 {
   "standard.enable": false,
-  "eslint.enable": true
+  "cucumberautocomplete.steps": [
+    "cypress/integration/**/*steps.js",
+  ],
+  "cucumberautocomplete.syncfeatures": "cypress/integration/**/*.feature",
+  "editor.quickSuggestions": {
+    "strings": true,
+  }
 }

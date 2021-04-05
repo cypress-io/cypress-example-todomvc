@@ -1,4 +1,4 @@
 {
   "fixturesFolder": false,
-  "pluginsFile": false
+  "testFiles": ["**/*.{feature,features}", "**/*.spec.js"]
 }

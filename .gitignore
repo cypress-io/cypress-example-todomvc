@@ -30,3 +30,4 @@ cypress/screenshots
 
 #locked package.json
 package-lock.json
+tmp
