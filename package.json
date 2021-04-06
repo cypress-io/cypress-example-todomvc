@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "cosmiconfig": "7.0.x",
-    "cypress-cucumber-preprocessor": "4.0.x",
     "director": "1.2.8",
     "http-server": "0.12.3",
     "react": "0.13.3",
@@ -37,7 +36,9 @@
     "axe-core": "3.5.5",
     "cypress": "6.8.x",
     "cypress-axe": "0.12.2",
+    "cypress-cucumber-preprocessor": "4.0.x",
     "eslint": "7.23.x",
+    "eslint-plugin-chai-friendly": "0.6.x",
     "eslint-plugin-cypress": "2.11.2",
     "eslint-plugin-mocha": "8.1.x",
     "npm-run-all": "4.1.5",

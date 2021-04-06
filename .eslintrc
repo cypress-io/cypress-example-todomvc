@@ -1,14 +1,18 @@
 {
   "extends": [
-    "plugin:cypress-dev/general",
-    "plugin:cypress-dev/tests",
-    "plugin:cypress/recommended"
+    "eslint:recommended",
+    "plugin:cypress/recommended",
+    "plugin:chai-friendly/recommended"
   ],
-  "globals": {
-    "cy": true,
-    "Cypress": true
+  "rules": {
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error"
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "cypress/globals": true
   }
 }

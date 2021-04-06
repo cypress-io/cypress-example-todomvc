@@ -1,4 +1,4 @@
-import { Given, When, Then } from "cypress-cucumber-preprocessor/steps"
+import { When, Then } from "cypress-cucumber-preprocessor/steps"
 
 import { homePage } from '../lesson5.page'
 import { searchResultPage } from '../lesson5.page'
