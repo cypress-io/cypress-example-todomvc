@@ -1,57 +1,60 @@
 /* eslint-env browser */
 /* eslint-disable-next-line no-var */
-var app = app || {}
+var app = app || {};
 
-;(function () {
-  'use strict'
+(function () {
+  "use strict";
 
   app.Utils = {
-    uuid () {
+    uuid() {
       /*jshint bitwise:false */
-      let i; let random
-      let uuid = ''
+      let i;
+      let random;
+      let uuid = "";
+      let anotherUuid = "";
 
       for (i = 0; i < 32; i++) {
-        random = Math.random() * 16 | 0
+        random = (Math.random() * 16) | 0;
         if (i === 8 || i === 12 || i === 16 || i === 20) {
-          uuid += '-'
+          uuid += "-";
         }
 
-        uuid += (i === 12 ? 4 : (i === 16 ? (random & 3 | 8) : random))
-        .toString(16)
+        uuid += (i === 12 ? 4 : i === 16 ? (random & 3) | 8 : random).toString(
+          16
+        );
       }
 
-      return uuid
+      return uuid;
     },
 
-    pluralize (count, word) {
-      return count === 1 ? word : `${word}s`
+    pluralize(count, word) {
+      return count === 1 ? word : `${word}s`;
     },
 
-    store (namespace, data) {
+    store(namespace, data) {
       if (data) {
-        return localStorage.setItem(namespace, JSON.stringify(data))
+        return localStorage.setItem(namespace, JSON.stringify(data));
       }
 
-      let store = localStorage.getItem(namespace)
+      let store = localStorage.getItem(namespace);
 
-      return (store && JSON.parse(store)) || []
+      return (store && JSON.parse(store)) || [];
     },
 
-    extend (...args) {
-      let newObj = {}
+    extend(...args) {
+      let newObj = {};
 
       for (let i = 0; i < args.length; i++) {
-        let obj = args[i]
+        let obj = args[i];
 
         for (let key in obj) {
           if (obj.hasOwnProperty(key)) {
-            newObj[key] = obj[key]
+            newObj[key] = obj[key];
           }
         }
       }
 
-      return newObj
+      return newObj;
     },
-  }
-})()
+  };
+})();
