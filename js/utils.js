@@ -11,7 +11,6 @@ var app = app || {};
       let i;
       let random;
       let uuid = "";
-      let anotherUuid = "";
 
       for (i = 0; i < 32; i++) {
         random = (Math.random() * 16) | 0;
