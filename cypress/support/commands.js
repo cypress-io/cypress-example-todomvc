@@ -8,7 +8,7 @@
 // commands for use throughout your tests.
 //
 // You can read more about custom commands here:
-// https://on.cypress.io/commands
+// https://docs.cypress.io/api/cypress-api/custom-commands
 // ***********************************************
 
 Cypress.Commands.add('createDefaultTodos', function () {
