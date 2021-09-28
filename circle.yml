@@ -14,7 +14,7 @@ executors:
       - image: cypress/base:12
   mac:
     macos:
-      xcode: "10.1.0"
+      xcode: "13.0.0"
 
 jobs:
   lint:
