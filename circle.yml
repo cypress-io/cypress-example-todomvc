@@ -9,16 +9,16 @@ orbs:
   win: circleci/windows@1
 
 executors:
-  node12-lts:
+  node16-lts:
     docker:
-      - image: cypress/base:12
+      - image: cypress/base:16
   mac:
     macos:
       xcode: "13.0.0"
 
 jobs:
   lint:
-    executor: node12-lts
+    executor: node16-lts
     steps:
       - attach_workspace:
           at: ~/
@@ -29,7 +29,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          executor: node12-lts
+          executor: node16-lts
           name: Linux test
           record: true
           start: npm start
