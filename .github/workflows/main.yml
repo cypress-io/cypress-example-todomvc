@@ -2,7 +2,7 @@ name: End-to-end tests
 on: [push]
 jobs:
   cypress-run:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -14,5 +14,3 @@ jobs:
           # let's see if the Test Runner handles url in the config
           # https://github.com/cypress-io/cypress/issues/5466
           config: baseUrl=http://localhost:8888
-
-
