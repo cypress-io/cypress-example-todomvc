@@ -56,7 +56,7 @@ You should see the TodoMVC app up and running. We are now ready to run Cypress t
 
 ### 3. Add the project to Cypress
 
-[Follow these instructions to add the project to Cypress.](https://on.cypress.io/guides/installing-and-running#section-adding-projects)
+[Follow these instructions to add the project to Cypress.](https://on.cypress.io/guides/getting-started/installing-cypress#Installing)
 
 ### 4. Run in Continuous Integration
 
