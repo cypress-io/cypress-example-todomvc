@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "axe-core": "3.5.5",
-    "cypress": "9.3.1",
+    "cypress": "9.5.2",
     "cypress-axe": "0.9.1",
     "eslint": "7.16.0",
     "eslint-plugin-cypress-dev": "3.0.0",
