@@ -19,7 +19,7 @@
     "test:ci:record": "run-p --race start:ci cypress:run:record",
     "test:ci:chrome": "run-p --race start:ci cypress:run:chrome",
     "test:ci:headed": "run-p --race start:ci cypress:run:headed",
-    "lint": "eslint --fix cypress/integration cypress/support js",
+    "lint": "eslint --fix cypress/e2e cypress/support js",
     "effective:circle:config": "circleci config process circle.yml | sed /^#/d",
     "types": "tsc --noEmit",
     "e2e": "cypress run"
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "axe-core": "3.5.6",
-    "cypress": "9.6.1",
+    "cypress": "10.0.0",
     "cypress-axe": "0.9.1",
     "eslint": "7.16.0",
     "eslint-plugin-cypress-dev": "3.0.0",

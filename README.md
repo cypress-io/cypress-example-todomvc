@@ -10,7 +10,7 @@ The tests are written to be directly compared to the official TodoMVC tests.
 
 Each test covers the same functionality found in the official TodoMVC tests but utilizes the Cypress API.
 
-The [tests are heavily commented](cypress/integration/app_spec.js) to ease you into the Cypress API.
+The [tests are heavily commented](cypress/e2e/app_spec.js) to ease you into the Cypress API.
 
 [You can find the official TodoMVC tests we are comparing to here.](https://github.com/tastejs/todomvc/blob/master/tests/test.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/page.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/testOperations.js)
 

@@ -1,7 +1,7 @@
 # https://www.appveyor.com/docs/lang/nodejs-iojs/
 # Test against the latest version of this Node.js version
 environment:
-  nodejs_version: "10"
+  nodejs_version: "12"
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -10,6 +10,9 @@ install:
   # npm should be > v6 (for "npm ci" command and good package lock handling)
   - node --version
   - npm --version
+  # fix installing todomvc-common over git, use HTTPS instead of SSH
+  # https://stackoverflow.com/a/68185705/3474615
+  - 'git config --global url."https://".insteadOf ssh://'
   - npm ci
   - npx cypress cache path
 
