@@ -11,8 +11,8 @@ install:
   - node --version
   - npm --version
   # fix installing todomvc-common over git, use HTTPS instead of SSH
-  # https://stackoverflow.com/a/61350264/3474615
-  - 'git config --global url."https://github.com/".insteadOf git@github.com:'
+  # https://stackoverflow.com/a/68185705/3474615
+  - 'git config --global url."https://".insteadOf ssh://'
   - npm ci
   - npx cypress cache path
 
