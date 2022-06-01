@@ -10,11 +10,11 @@ install:
   # npm should be > v6 (for "npm ci" command and good package lock handling)
   - node --version
   - npm --version
-  - npm ci
-  - npx cypress cache path
   # fix installing todomvc-common over git, use HTTPS instead of SSH
   # https://stackoverflow.com/a/61350264/3474615
   - 'git config --global url."https://github.com/".insteadOf git@github.com:'
+  - npm ci
+  - npx cypress cache path
 
 cache:
   # cache NPM packages and Cypress binary
