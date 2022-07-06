@@ -1,5 +1,5 @@
 name: End-to-end tests
-on: [push]
+on: [pull]
 jobs:
   cypress-run:
     runs-on: windows-latest
