@@ -13,7 +13,7 @@ var app = app || {};
 	app.COMPLETED_TODOS = 'completed';
 	var TodoFooter = app.TodoFooter;
 	var TodoItem = app.TodoItem;
-console.log("start")
+console.log("start dev")
 	var ENTER_KEY = 13;
 
 	var TodoApp = React.createClass({
