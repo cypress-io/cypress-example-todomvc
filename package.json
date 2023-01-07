@@ -32,7 +32,7 @@
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
-    "axe-core": "4.6.1",
+    "axe-core": "4.6.2",
     "cypress": "12.3.0",
     "cypress-axe": "0.9.1",
     "eslint": "7.16.0",
