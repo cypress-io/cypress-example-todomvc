@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "lib": ["es2015", "dom"],
+    "target": "es6",
+    "lib": ["es6", "dom"],
     "allowJs": true,
     "noEmit": true,
     "types": [
@@ -8,6 +9,7 @@
     ]
   },
   "include": [
-    "cypress/**/*.js"
+    "cypress/**/*.js",
+    "**/*.ts"
   ]
 }

@@ -1,4 +1,6 @@
+/// <reference types="cypress" />
 // ***********************************************************
+
 // This example support/index.js is processed and
 // loaded automatically before your other test files.
 //
