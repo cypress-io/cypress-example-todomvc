@@ -5,8 +5,7 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
   # for testing on Windows
-  # https://circleci.com/docs/2.0/hello-world-windows/
-  win: circleci/windows@1
+  win: circleci/windows@5
 
 executors:
   node18-lts:
@@ -46,7 +45,7 @@ workflows:
       - cypress/run:
           name: Windows test
           executor:
-            name: win/vs2019
+            name: win/default
             shell: bash.exe
           record: true
           start: npm start
