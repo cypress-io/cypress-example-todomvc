@@ -11,7 +11,7 @@ orbs:
 executors:
   node18-lts:
     docker:
-      - image: cypress/base:18
+      - image: cypress/base:18.16.1
   mac:
     macos:
       xcode: "14.0.1"
