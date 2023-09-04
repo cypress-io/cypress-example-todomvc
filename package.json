@@ -4,7 +4,7 @@
   "version": "0.0.0-development",
   "description": "This repo contains an example React App, with the tests written in Cypress",
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc -p ./js/ && node ./node_modules/browserify/bin/cmd ./js/app.js -o ./js/bundle.js",
+    "build": "cross-env ./node_modules/typescript/bin/tsc -p ./js/ && node ./node_modules/browserify/bin/cmd ./js/app.js -o ./js/bundle.js",
     "cypress:version": "cypress version",
     "cypress:verify": "cypress verify",
     "cypress:open": "cypress open",
@@ -39,6 +39,7 @@
   "devDependencies": {
     "axe-core": "4.7.2",
     "browserify": "^16.2.3",
+    "cross-env": "7.0.3",
     "cypress": "13.1.0",
     "cypress-axe": "1.5.0",
     "eslint": "7.16.0",
