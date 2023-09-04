@@ -20,7 +20,7 @@
     "test:ci:record": "run-p --race start cypress:run:record",
     "test:ci:chrome": "run-p --race start cypress:run:chrome",
     "test:ci:headed": "run-p --race start cypress:run:headed",
-    "lint": "eslint --fix cypress/e2e cypress/support js",
+    "lint": "eslint --fix cypress/e2e cypress/support",
     "effective:circle:config": "circleci config process circle.yml | sed /^#/d",
     "types": "tsc --noEmit",
     "e2e": "cypress run"
