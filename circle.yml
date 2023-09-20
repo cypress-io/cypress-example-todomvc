@@ -13,7 +13,8 @@ executors:
       - image: cypress/base:18.16.1
   mac:
     macos:
-      xcode: "14.0.1"
+      xcode: "14.3.1"
+    resource_class: macos.x86.medium.gen2
 
 jobs:
   lint:
