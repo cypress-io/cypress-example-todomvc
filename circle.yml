@@ -8,17 +8,17 @@ orbs:
   win: circleci/windows@5
 
 executors:
-  node18-lts:
+  node20-lts:
     docker:
-      - image: cypress/base:18.16.1
+      - image: cypress/base:20.11.1
   mac:
     macos:
-      xcode: "14.3.1"
-    resource_class: macos.x86.medium.gen2
+      xcode: "15.3.0"
+    resource_class: macos.m1.medium.gen1
 
 jobs:
   lint:
-    executor: node18-lts
+    executor: node20-lts
     steps:
       - attach_workspace:
           at: ~/
@@ -29,7 +29,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          executor: node18-lts
+          executor: node20-lts
           name: Linux test
           record: true
           start: npm start
