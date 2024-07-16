@@ -40,7 +40,7 @@
     "axe-core": "4.9.1",
     "browserify": "^16.2.3",
     "cross-env": "7.0.3",
-    "cypress": "13.13.0",
+    "cypress": "13.13.1",
     "cypress-axe": "1.5.0",
     "eslint": "7.32.0",
     "eslint-plugin-cypress-dev": "3.0.0",
