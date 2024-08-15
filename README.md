@@ -1,13 +1,9 @@
 # TodoMVC [![Circle CI](https://circleci.com/gh/cypress-io/cypress-example-todomvc.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-todomvc)
 
 
-This repo contains an example React App, with the tests written in Cypress.
+This repo contains an example React App, with the tests written in Cypress and running tests in Circle CI.
 
-Additionally this example app is configured to run tests in Circle CI and Travis CI.
-
-The tests are written to be directly compared to the official TodoMVC tests.
-
-Each test covers the same functionality found in the official TodoMVC tests but utilizes the Cypress API.
+The tests are written to be directly compared to the official TodoMVC tests. Each test covers the same functionality found in the official TodoMVC tests but utilizes the Cypress API.
 
 The [tests are heavily commented](cypress/e2e/app.cy.js) to ease you into the Cypress API.
 
